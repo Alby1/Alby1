@@ -18,6 +18,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
 body {
     background-color: darkslategray;
     color: gainsboro;
+    height: 100%;
 }
 
 html {
