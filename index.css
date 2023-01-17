@@ -54,10 +54,6 @@ html {
     font-family: 'Times New Roman', Times, serif;
 }
 
-p {
-    max-width: 30ch;
-}
-
 br {
     margin-bottom: 1ch;
 }
