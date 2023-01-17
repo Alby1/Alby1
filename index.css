@@ -15,6 +15,19 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-items: center;
 }
 
+.flex-responsive {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 600px) {
+    .flex-responsive {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
 body {
     background-color: darkslategray;
     color: gainsboro;
