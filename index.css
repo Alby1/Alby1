@@ -15,6 +15,15 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-items: center;
 }
 
+.flex-item {
+    display: flex;
+    justify-content: baseline;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid gainsboro;
+    border-radius: 4px;
+}
+
 .flex-responsive {
     display: flex;
     flex-direction: row;
@@ -25,6 +34,10 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     .flex-responsive {
         flex-direction: column;
         justify-content: space-around;
+    }
+
+    .flex-item {
+        margin-bottom: 30px;
     }
 }
 
