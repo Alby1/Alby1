@@ -23,6 +23,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     border: 4px solid gainsboro;
     border-radius: 15px;
     padding: 3ch;
+    margin: 2ch;
 }
 
 .flex-responsive {
@@ -41,6 +42,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
         margin-bottom: 30px;
         border: 2px solid gainsboro;
         padding: 0;
+        margin: 0;
     }
 }
 
