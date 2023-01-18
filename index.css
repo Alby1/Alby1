@@ -19,11 +19,17 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     display: flex;
     justify-content: baseline;
     flex-direction: column;
-    align-items: center;
+    align-content: flex-start;
     border: 3px solid gainsboro;
     border-radius: 20px;
     padding: 3ch;
     margin: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.flex-item > h2 {
+    align-self: center;
 }
 
 .flex-responsive {
@@ -39,7 +45,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
         justify-content: space-around;
     }
 
-    .flex-item {;
+    .flex-item {
         border: 1px solid gainsboro;
     }
 }
