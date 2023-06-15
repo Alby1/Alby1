@@ -1,0 +1,25 @@
+{
+    "title": "Chi sono",
+
+    "presenting_title": "MI PRESENTO",
+    "presenting_text": "Mi chiamo Alberto Macchi, sono nato il 02/12/2004. Studio presso l'IIS F.Corni a Modena.",
+    
+    "my_projects": "I MIEI PROGETTI",
+    
+    "salama_title": "Salama",
+    "salama_desc": "Sito di ricerca sagre e eventi.",
+
+    "bitchis_title" : "Le Bitchis",
+    "bitchis_desc": "Progetto scolastico realizzato con Wordpress e vari plugin, tra cui WooCommerce.<br>Si tratta di un sito di vendita di biciclette con dettagli completi, categorie, recensioni, account e pagamenti con PayPal.<br>Realizzato insieme a Mattia Franciosi.",
+
+    "elevate_desc": "Progetto in realizzazione con amici e compagni di classe.<br>Creiamo videogiochi nel tempo libero.",
+    
+    "tms_desc" : "Abbreviazione di Team Macchi Schiavone.<br>Questo è il primo sito che abbiamo realizzato e rappresenta la nascita della nostra ambizione verso il mondo del game development.",
+
+    "my_contacts":"I MIEI CONTATTI",
+
+    "link": "Link",
+    "primary_link" : "Link primario",
+    "secondary_link" : "Link secondario",
+    "tertiary_link" : "Link terziario"
+}

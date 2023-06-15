@@ -1,0 +1,25 @@
+{
+    "title": "About me",
+
+    "presenting_title": "TO INTRODUCE MYSELF",
+    "presenting_text": "My name is Alberto Macchi, I was born on 02/12/2004. I attend IIS F.Corni in Modena, Italy.",
+    
+    "my_projects": "MY PROJECTS",
+    
+    "salama_title": "Vabenla",
+    "salama_desc": "A festivals and events search website. Currently partially available only in Italy, contact me if you're interested in helping me out expanding to other areas",
+
+    "bitchis_title" : "Le Bitchis",
+    "bitchis_desc": "School project realized through Wordpress and some plugin, like WooCommerce.<br>This is a bicycle sales website with full details, categories, reviews, accounts, and PayPal payments.<br>Created with Mattia Franciosi.",
+
+    "elevate_desc": "Project being carried out with friends and classmates.<br>We design video games in our free time.",
+    
+    "tms_desc" : "Short for Team Macchi Schiavone.<br>This is the first website we have ever built and represents the birth of our ambition towards the world of game development.",
+
+    "my_contacts":"MY CONTACT INFORMATION",
+
+    "link": "Link",
+    "primary_link" : "Primary link",
+    "secondary_link" : "Secondary link",
+    "tertiary_link" : "Tertiary link"
+}
