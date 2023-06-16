@@ -30,6 +30,7 @@ async def read_item(request: Request, lan: str):
     except Exception:
         return RedirectResponse("/it")
     obj["request"] = request
+    obj["lan"] = lan
     return templates.TemplateResponse("index.html", obj)
 
 if __name__ == "__main__":

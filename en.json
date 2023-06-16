@@ -1,5 +1,7 @@
 {
     "title": "About me",
+    "og_title": "About me",
+    "og_desc": "All you need to know about me and my projects",
 
     "presenting_title": "TO INTRODUCE MYSELF",
     "presenting_text": "My name is Alberto Macchi, I was born on 02/12/2004. I'm about to graduate at IIS F.Corni in Modena, Italy.",
