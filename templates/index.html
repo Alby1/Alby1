@@ -23,6 +23,8 @@
         <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
         <!-- <a href="/de"><img src="{{ url_for('static', path='images/de.png')}}" alt="DE"></a> -->
     </div>
+    <!-- IDEA: quandi in verticale fare che le zone si ingrandiscano con lo scorrimento -->
+    <!-- IDEA: effetto ombra del mouse nelle zone  -->
     <div style="margin-bottom: 1%;">
         <div class="flex-row"><h1>{{ presenting_title | safe }}</h1></div>
         <div class="flex-responsive">
@@ -57,7 +59,9 @@
         </div>
         <div class="flex-row"><h1>{{ my_contacts | safe }}</h1></div>
         <div class="flex-responsive">
-            <!-- TODO: mettere le immaginette per i profili -->
+            <!-- TODO: mettere le immaginette per i profili. FATTO MA NON VA???? -->
+            <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
+            
             <div class="flex-item"><a href="https://twitter.com/malbyx" me><img src="https://twitter.com/favicon.ico" alt="Twitter"></a></div>
             <div class="flex-item"><a href="mailto:alby.macchi2004@gmail.com" me><img src="https://mail.google.com/favicon.ico" alt="E-Mail"></a></div>
             <div class="flex-item"><a href="https://www.instagram.com/malbyx/" me><img src="https://www.instagram.com/favicon.ico" alt="Instagram"></a></div>
