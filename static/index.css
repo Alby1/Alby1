@@ -52,7 +52,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-items: center;
     gap: 2rem;
     margin-right: 2rem;
-    margin-top: .5rem;
+    padding-top: .5rem;
 }
 
 #lan_selector > a {
