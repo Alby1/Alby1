@@ -51,6 +51,12 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     justify-content: flex-end;
     align-items: center;
     gap: 2rem;
+    margin-right: 2rem;
+    margin-top: .5rem;
+}
+
+#lan_selector > a {
+    margin-bottom: 0;
 }
 
 #lan_selector > a > img {
@@ -77,6 +83,7 @@ body {
     background-color: darkslategray;
     color: gainsboro;
     height: 100%;
+    margin: 0;
 }
 
 br {
