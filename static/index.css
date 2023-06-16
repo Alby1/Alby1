@@ -71,6 +71,10 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     transition: .2s;
 }
 
+img {
+    width: 10%;
+}
+
 html {
     font-family: "JetBrainsMono-Light"
 }
