@@ -15,7 +15,8 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-items: center;
 }
 
-.flex-item, .contact-item {
+.flex-item,
+.contact-item {
     display: flex;
     justify-content: baseline;
     flex-direction: column;
@@ -28,7 +29,8 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     flex-basis: 0;
 }
 
-.flex-item > h1, .flex-item > h2 {
+.flex-item>h1,
+.flex-item>h2 {
     align-self: center;
 }
 
@@ -37,15 +39,20 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     flex-direction: row;
     justify-content: space-evenly;
     gap: 16px;
+    width: 95%;
+    margin: auto;
 }
 
 @media only screen and (max-width: 730px) {
     .flex-responsive {
         flex-direction: column;
         justify-content: space-around;
-        width: 85%;
         justify-self: center;
+    }
+
+    .flex-item {
         margin: auto;
+        width: 90%;
     }
 }
 
@@ -58,20 +65,30 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     padding-top: .5rem;
 }
 
-#lan_selector > a {
+#lan_selector>a {
     margin-bottom: 0;
 }
 
-#lan_selector > a > img {
+#lan_selector>a>img {
     max-height: 100px;
     height: 5vh;
     min-height: 40px;
     transition: .4s;
 }
 
-#lan_selector > a > img:hover {
+#lan_selector>a>img:hover {
     transform: scale(1.25);
     transition: .2s;
+}
+
+#mouse_shadow{
+    background: radial-gradient(rgb(51, 51, 51), rgba(70, 70, 70, 0));
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top:-100px;
+    left:-100px;
+    z-index: -1;
 }
 
 .contact-item img {
@@ -79,10 +96,15 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
 }
 
 html {
-    font-family: "JetBrainsMono-Light"
+    font-family: "JetBrainsMono-Light";
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "JetBrainsMono-Bold";
 }
 
@@ -107,7 +129,7 @@ div a:first-of-type {
     font-family: "JetBrainsMono-SemiBoldItalic";
 }
 
-.flex-responsive > p {
+.flex-responsive>p {
     text-align: center;
 }
 
@@ -142,7 +164,3 @@ div a:first-of-type {
     font-family: "JetBrainsMono-Italic";
     src: url('webfonts/JetBrainsMono-Italic.woff2') format('woff2');
 }
-
-
-
-

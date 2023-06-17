@@ -19,7 +19,7 @@
     <script src="{{ url_for('static', path='index.js')}}"></script>
 </head>
 <body>
-    
+    <span id="mouse_shadow"></span>
     <div id="lan_selector">
         <a href="/it"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
         <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
@@ -48,20 +48,19 @@
             </div>
             <div class="flex-item">
                 <h2>Elevate Game Studio</h2>
-                <a href="https://egs.malbyx.tk">{{ primary_link | safe }}</a>
-                <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a>
+                <a href="https://elevategamestudio.tk">{{ primary_link | safe }}</a>
+                <a href="https://egs.malbyx.tk">{{ secondary_link | safe }}</a>
                 <p>{{ elevate_desc | safe }}</p>
             </div>
             <div class="flex-item">
                 <h2>TMS</h2>
-                <a href="https://teamms.tk/">{{ primary_link | safe }}</a>
-                <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
+                <a href="https://teamms.netlify.app/">{{ primary_link | safe }}</a>
+                <a href="https://teamms.tk/">{{ secondary_link | safe }}</a>
                 <p>{{ tms_desc | safe }}</p>
             </div>
         </div>
         <div class="flex-row"><h1>{{ my_contacts | safe }}</h1></div>
         <div class="flex-responsive">
-            <!-- TODO: mettere le immaginette per i profili. FATTO MA NON VA???? -->
             <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
             
             <div class="contact-item"><a href="https://twitter.com/malbyx" me><img src="https://twitter.com/favicon.ico" alt="Twitter"></a></div>
@@ -70,6 +69,6 @@
             <div class="contact-item"><a href="https://www.linkedin.com/in/alberto-macchi" me><img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn"></a></div>
         </div>
     </div>
-    <!-- <script>onLoad()</script> -->
+    <script>onLoad()</script>
 </body>
 </html>
