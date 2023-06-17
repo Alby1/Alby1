@@ -15,7 +15,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-items: center;
 }
 
-.flex-item {
+.flex-item, .contact-item {
     display: flex;
     justify-content: baseline;
     flex-direction: column;
@@ -28,7 +28,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     flex-basis: 0;
 }
 
-.flex-item > h1, h2 {
+.flex-item > h1, .flex-item > h2 {
     align-self: center;
 }
 
@@ -43,6 +43,9 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     .flex-responsive {
         flex-direction: column;
         justify-content: space-around;
+        width: 85%;
+        justify-self: center;
+        margin: auto;
     }
 }
 
@@ -71,7 +74,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     transition: .2s;
 }
 
-img {
+.contact-item img {
     width: 10%;
 }
 
