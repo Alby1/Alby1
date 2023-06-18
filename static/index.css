@@ -54,6 +54,10 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
         margin: auto;
         width: 90%;
     }
+
+    .contact-item img {
+        width: 5%;
+    }
 }
 
 #lan_selector {
@@ -92,7 +96,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
 }
 
 .contact-item img {
-    width: 10%;
+    width: 15%;
 }
 
 html {

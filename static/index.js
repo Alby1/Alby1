@@ -7,6 +7,9 @@ function onLoad() {
     shadow = document.getElementById("mouse_shadow")
     shadow.style.width = SWidth + "px"
     shadow.style.height = SHeight + "px" */
+    let img = document.getElementById("img")
+    console.log(img.complete, img.naturalHeight)
+    
 }
 
 function pageOnScroll(event) {
@@ -16,18 +19,11 @@ function pageOnScroll(event) {
     for (el of elements) {
         let elY = el.getBoundingClientRect().y
         const wHeight = window.innerHeight
-        const wHeight3 = wHeight / 3
-        const wHeight32 = wHeight3 * 2
-        // if(elY < wHeight3 || elY > wHeight32) {
-        //     el.style.width = "85%"
-        //     continue
-        // }
+        const wHeight3 = wHeight / 5
+        const wHeight32 = wHeight / 10 * 6
         const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
         let factor = (elY < wHeight3 ? (elY / wHeight3) : (wHeight32 / elY))
         el.style.width = `${70 + clampNumber(factor * 20, 0, 20)}%`
-        /* TODO: fare ↑ ma col padding */
-        
-        // el.style.padding = ``
     }
 }
 
