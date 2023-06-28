@@ -22,10 +22,13 @@
     
     "fun_features_title" : "FATTI INTERESSANTI",
     "music_info_title" : "Statistiche sulla mie canzoni preferite",
+    "music_info_desc": "{playcount} riproduzioni totali, {track_count} canzoni da {artist_count} artisti. Tenendo traccia dal {registered}.",
+    "music_info_link": "Profilo completo",
     "listening_to": "Adesso sto ascoltando: ",
     "last_listened_to" : "Ultima canzone che ho ascoltato: ",
-    "top_artists": "Top 5 artisti:",
-    "top_tracks": "Top 5 canzoni:",
+    "top_artists": "Top {count} artisti:",
+    "top_tracks": "Top {count} canzoni:",
+    "weekly_top_tracks": "Top 5 canzoni di questa settimana:",
     "powered_by_lastfm": "Reso possibile grazie a: ",
 
     "link": "Link",
