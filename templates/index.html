@@ -14,9 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', path='index.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='images/favicon.png') }}">
     <script src="{{ url_for('static', path='index.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='index.css') }}" onload="onLoad()">
 </head>
 <body>
     <span id="mouse_shadow"></span>
@@ -69,7 +69,31 @@
             <div class="contact-item"><a href="https://www.instagram.com/malbyx/" me><img src="https://www.instagram.com/favicon.ico" alt="Instagram"></a></div>
             <div class="contact-item"><a href="https://www.linkedin.com/in/alberto-macchi" me><img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn"></a></div>
         </div>
+        <div class="flex-row">
+            <h1>{{ fun_features_title | safe }}</h1>
+        </div>
+        <div class="flex-responsive">
+            <div class="flex-item">
+                <h2>{{ music_info_title | safe }}</h2>
+                <p id="music_info_desc">{{ music_info_desc }}</p>
+                <a href="#" id="music_info_link">{{ music_info_link }}</a>
+                <p hidden>{{ listening_to | safe }} <a href="#" id="listening_to"></a></p>
+                <p hidden>{{ last_listened_to | safe }} <a href="#" id="last_listened_to"></a></p>
+                <div class="flex-responsive">
+                    <div id="top_artists" hidden>
+                        <p>{{ top_artists | safe }}</p>
+                    </div>
+                    <div id="top_tracks" hidden>
+                        <p>{{ top_tracks | safe}}</p>
+                    </div>
+                    <div id="weekly_top_tracks" hidden>
+                        <p>{{ weekly_top_tracks | safe}}</p>
+                    </div>
+                </div>
+                <br>
+                <p>{{ powered_by_lastfm | safe }}<a href="https://www.last.fm/about">Last.fm</a></p>
+            </div>
+        </div>
     </div>
-    <script>onLoad()</script>
 </body>
 </html>

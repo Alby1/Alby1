@@ -20,6 +20,17 @@
 
     "my_contacts":"MY CONTACT INFORMATION",
 
+    "fun_features_title" : "FUN FACTS",
+    "music_info_title" : "My music taste statistics",
+    "music_info_desc": "{playcount} total reproductions, {track_count} songs by {artist_count} artists. Keeping track since {registered}.",
+    "music_info_link": "Check out my full profile",
+    "listening_to": "Right now I'm listening to: ",
+    "last_listened_to" : "Last song I listened to: ",
+    "top_artists": "Top {count} artists:",
+    "top_tracks": "Top {count} tracks:",
+    "weekly_top_tracks": "Top 5 tracks this week:",
+    "powered_by_lastfm": "Powered by: ",
+
     "link": "Link",
     "primary_link" : "Primary link",
     "secondary_link" : "Secondary link",

@@ -19,6 +19,14 @@
     "tms_desc" : "Abbreviazione di Team Macchi Schiavone.<br>Questo è il primo sito che abbiamo realizzato e rappresenta la nascita della nostra ambizione verso il mondo del game development.",
 
     "my_contacts":"I MIEI CONTATTI",
+    
+    "fun_features_title" : "FATTI INTERESSANTI",
+    "music_info_title" : "Statistiche sulla mie canzoni preferite",
+    "listening_to": "Adesso sto ascoltando: ",
+    "last_listened_to" : "Ultima canzone che ho ascoltato: ",
+    "top_artists": "Top 5 artisti:",
+    "top_tracks": "Top 5 canzoni:",
+    "powered_by_lastfm": "Reso possibile grazie a: ",
 
     "link": "Link",
     "primary_link" : "Link primario",
