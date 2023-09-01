@@ -36,26 +36,27 @@
         <div class="flex-responsive">
             <div class="flex-item">
                 <h2>{{ salama_title | safe }}</h2>
-                <a href="https://salama.malbyx.tk">{{ link | safe }}</a>
+                <a href="http://vabenla.it">{{ primary_link | safe }}</a>
+                <a href="https://salama.malbyx.eu">{{ secondary_link | safe }}</a>
                 <p>{{ salama_desc | safe }}</p>
             </div>
             <div class="flex-item">
                 <h2>{{ bitchis_title | safe }}</h2>
-                <a href="https://lebitchis.malbyx.tk">{{ primary_link | safe }}</a>
+                <a href="https://lebitchis.malbyx.eu">{{ primary_link | safe }}</a>
                 <a href="https://lebitchis.tk">{{ secondary_link | safe }}</a>
-                <a href="https://wordpress.malbyx.tk">{{ tertiary_link | safe }}</a>
+                <a href="https://wordpress.malbyx.eu">{{ tertiary_link | safe }}</a>
                 <p>{{ bitchis_desc | safe }}</p>
             </div>
             <div class="flex-item">
                 <h2>Elevate Game Studio</h2>
-                <a href="https://egs.malbyx.tk">{{ primary_link | safe }}</a>
-                <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a>
+                <a href="https://egs.malbyx.eu">{{ primary_link | safe }}</a>
+                <!-- <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a> -->
                 <p>{{ elevate_desc | safe }}</p>
             </div>
             <div class="flex-item">
                 <h2>TMS</h2>
-                <a href="https://teamms.netlify.app/">{{ primary_link | safe }}</a>
-                <a href="https://teamms.tk/">{{ secondary_link | safe }}</a>
+                <a href="https://tms.malbyx.eu/">{{ primary_link | safe }}</a>
+                <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
                 <p>{{ tms_desc | safe }}</p>
             </div>
         </div>
@@ -64,10 +65,10 @@
             <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
             <!-- https://www.techiedelight.com/check-whether-image-is-loaded-with-javascript/ -->
             
-            <div class="contact-item"><a href="https://twitter.com/malbyx" me><img src="https://twitter.com/favicon.ico" alt="Twitter"></a></div>
-            <div class="contact-item"><a href="mailto:alby.macchi2004@gmail.com" me><img src="https://mail.google.com/favicon.ico" alt="E-Mail"></a></div>
-            <div class="contact-item"><a href="https://www.instagram.com/malbyx/" me><img src="https://www.instagram.com/favicon.ico" alt="Instagram"></a></div>
-            <div class="contact-item"><a href="https://www.linkedin.com/in/alberto-macchi" me><img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn"></a></div>
+            <div class="contact-item"><a href="https://twitter.com/malbyx" me><img src="{{ url_for('static', path='images/twitter.png') }}" alt="Twitter"></a></div>
+            <div class="contact-item"><a href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}" alt="E-Mail"></a></div>
+            <div class="contact-item"><a href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}" alt="Instagram"></a></div>
+            <div class="contact-item"><a href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}" alt="LinkedIn"></a></div>
         </div>
         <div class="flex-row">
             <h1>{{ fun_features_title | safe }}</h1>
@@ -96,4 +97,10 @@
         </div>
     </div>
 </body>
+<footer>
+    <a href="https://www.flaticon.com/free-icons/twitter" title="twitter icons">Twitter icons created by Pixel perfect - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email icons created by Freepik - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by edt.im - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by riajulislam - Flaticon</a>
+</footer>
 </html>
