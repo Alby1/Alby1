@@ -70,7 +70,6 @@ function onLoad() {
     getData(`${location.origin}/lastfm/user`, (data) => {
         let music_info_desc = document.getElementById("music_info_desc")
         for (let info of Object.keys(data["user"])) {
-            if (info == "registered") data["user"][info] = (new Date(Date(data["user"][info]["#text"]))).toUTCString()
             music_info_desc.innerHTML = music_info_desc.innerHTML.replace(`{${info}}`, data["user"][info])
         }
         let music_info_link = document.getElementById("music_info_link")

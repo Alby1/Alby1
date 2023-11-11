@@ -24,7 +24,7 @@
     
     "fun_features_title" : "FATTI INTERESSANTI",
     "music_info_title" : "Statistiche sulla mie canzoni preferite",
-    "music_info_desc": "{playcount} riproduzioni totali, {track_count} canzoni da {artist_count} artisti. Tenendo traccia dal {registered}.",
+    "music_info_desc": "{playcount} riproduzioni totali, {track_count} canzoni da {artist_count} artisti.",
     "music_info_link": "Profilo completo",
     "listening_to": "Adesso sto ascoltando: ",
     "last_listened_to" : "Ultima canzone che ho ascoltato: ",
