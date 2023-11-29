@@ -40,7 +40,7 @@ async def lastfm_top_artists():
 
 @app.get("/lastfm/top_tracks")
 async def lastfm_top_tracks():
-    return requests.get(f"http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=rj&api_key={os.getenv('LAST_FM_KEY')}&format=json&limit=5&period=overall").json()
+    return requests.get(f"http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=malbyx&api_key={os.getenv('LAST_FM_KEY')}&format=json&limit=5&period=overall").json()
 
 @app.get("/lastfm/weekly_top_tracks")
 async def lastfm_weekly_top_tracks():
