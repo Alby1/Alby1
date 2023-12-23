@@ -87,7 +87,7 @@ footer {
 }
 
 #lan_selector>a>img:hover {
-    transform: scale(1.25);
+    transform: scale(1.25) rotate(10deg);
     transition: .2s;
 }
 
@@ -98,7 +98,7 @@ footer {
     position: absolute;
     top:-100px;
     left:-100px;
-    z-index: -1;
+    z-index: 1;
 }
 
 .contact-item img {
