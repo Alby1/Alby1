@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 import requests
 import html
+import xml
 
 import json
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -125,6 +126,7 @@ async def comments_add(user: str, text: str, date: str, contact: str):
         session = db.session()
         session.add(comment)
         session.commit()
+        # TODO: xml file for rssì'
         return {"status": "success"}
 
 
