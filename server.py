@@ -7,6 +7,7 @@ import json
 import os
 from dotenv import load_dotenv
 import requests
+import html
 
 import json
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -117,7 +118,8 @@ async def comments_get(offset: int = 0):
 @app.get("/comments/add")
 async def comments_add(user: str, text: str, date: str, contact: str):
     if(len(text) > 0):
-        comment = db.Comment(text, date, user, contact)
+        print(text, html.escape(text))
+        comment = db.Comment(html.escape(text), date, user, contact)
         session = db.session()
         session.add(comment)
         session.commit()
