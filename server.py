@@ -106,6 +106,8 @@ async def lastfm_weekly_top_tracks():
 
 @app.get("/comments/get")
 async def comments_get(offset: int = 0):
+    if(offset < 0):
+        return []
     session = db.session()
     obj = session.query(db.Comment).order_by(db.Comment.id.desc()).offset(offset).limit(10).all()
     comments = []
