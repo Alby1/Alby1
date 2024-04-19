@@ -74,9 +74,12 @@
             <div class="contact-item"><a alt="E-Mail" rel="me noreferrer noopener" target="_blank" href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}"></a></div>
             <div class="contact-item"><a alt="Instagram" rel="me noreferrer noopener" target="_blank" href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}"></a></div>
             <div class="contact-item"><a alt="YouTube - Gaming" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyx/" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
+        </div>
+        <div class="flex-responsive">
             <div class="contact-item"><a alt="LinkedIn" rel="me noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}"></a></div>
             <div class="contact-item"><a alt="Fediverse" rel="me noreferrer noopener" target="_blank" href="https://junimo.party/malbyx" me><img src="https://junimo.party/favicon.png" target="_blank"></a></div>
             <div class="contact-item"><a alt="Github" rel="me noreferrer noopener" target="_blank" href="https://github.com/Alby1/" me><img src="{{ url_for('static', path='images/github.png') }}"></a></div>
+            <div class="contact-item"><a alt="Flickr" rel="me noreferrer noopener" target="_blank" href="https://www.flickr.com/people/malbyx/" me><img src="{{ url_for('static', path='images/flickr.png') }}"></a></div>
         </div>
         <div class="flex-row">
             <h1>{{ fun_features_title | safe }}</h1>
@@ -103,6 +106,35 @@
                 <p>{{ powered_by_lastfm | safe }}<a href="https://www.last.fm/about">Last.fm</a></p>
             </div>
         </div>
+        <div class="flex-row">
+            <h1>{{ comments_title | safe }}</h1>
+            <p id="total-comments-number-text"></p>
+            <p id="comments-anonymous" hidden>{{ comments_anonymous | safe}}</p>
+        </div>
+        <div id="flex-comment-section"> </div>
+        <div class="flex-row">
+            <button id="load-more-comments-button" onclick="loadComments()" hidden>{{ comments_loadmore_button | safe}}</button>
+        </div>
+        <div class="flex-row">
+            <h2>{{ leave_a_comment_title | safe}}</h2>
+        </div>
+        <div id="insert-comment-section">
+            <div class="flex-item">
+                <label for="username">{{ leave_a_comment_username | safe}}</label>
+                <input name="username" id="username" type="text" placeholder="{{ leave_a_comment_username_placeholder | safe}}">
+            </div>
+            <div class="flex-item">
+                <label for="contact">{{ leave_a_comment_contact | safe}}</label>
+                <input name="contact" id="contact" type="text" placeholder="{{ leave_a_comment_contact_placeholder | safe}}">
+            </div>
+            <div class="flex-item">
+                <label for="text">{{ leave_a_comment_text | safe}}</label>
+                <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" required>{{ leave_a_comment_textarea | safe}}</textarea>
+            </div>
+            <div class="flex-item">
+                <button onclick="submitComment()">{{ leave_a_comment_submit | safe}}</button>
+            </div>
+        </div>
     </div>
 </body>
 <footer>
@@ -113,6 +145,7 @@
         <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by riajulislam - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Dave Gandy - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/flickr" title="flickr icons">Flickr icons created by Freepik - Flaticon</a>
     </div>
     <br>
 </footer>

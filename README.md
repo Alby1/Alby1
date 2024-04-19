@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-[About me](https://about.malbyx.tk)
+Check out my [about me](https://about.malbyx.eu) page.
 
 <!--
 **Alby1/Alby1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

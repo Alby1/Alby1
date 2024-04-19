@@ -36,5 +36,17 @@
     "link": "Link",
     "primary_link" : "Primary link",
     "secondary_link" : "Secondary link",
-    "tertiary_link" : "Tertiary link"
+    "tertiary_link" : "Tertiary link",
+
+    "comments_title" : "Comments",
+    "comments_loadmore_button": "Load more",
+    "comments_anonymous": "anonymous",
+    "leave_a_comment_title": "Leave a comment!",
+    "leave_a_comment_username": "Username (anonymous if left empty)",
+    "leave_a_comment_contact": "A way to contact you if you wanna get a reply (this will not be shown)",
+    "leave_a_comment_text" : "Comment text (65536 characters max)",
+    "leave_a_comment_textarea": "Say what you want!",
+    "leave_a_comment_submit": "Submit",
+    "leave_a_comment_contact_placeholder": "Contact (optional)",
+    "leave_a_comment_username_placeholder": "Username (optional)"
 }

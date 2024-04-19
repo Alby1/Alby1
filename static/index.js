@@ -1,3 +1,6 @@
+let comments_offset
+let total_comments_count
+
 function onLoad() {
     document.addEventListener("scroll", pageOnScroll)
     pageOnScroll()
@@ -77,6 +80,9 @@ function onLoad() {
     })
 
     loadRecentTracks()
+
+    comments_offset = 0
+    loadComments()
 }
 
 async function loadRecentTracks() {
@@ -113,6 +119,66 @@ async function loadRecentTracks() {
     }
 }
 
+
+function loadComments() {
+    getData(`${location.origin}/comments/get?offset=${comments_offset}`, (data) => {
+        comment_section = document.getElementById("flex-comment-section")
+        comments_anonymous = document.getElementById("comments-anonymous").innerHTML
+        if(comments_offset == 0) comment_section.innerHTML = ""
+        for (const comment of data["comments"]) {
+            comment_div = document.createElement("div")
+            comment_div.className = "flex-comment"
+            
+            title_div = document.createElement("div")
+            title_div.className = "comment-title"
+
+            if(comment.user == "") comment.user = comments_anonymous
+            comment_title = document.createElement("h3")
+            comment_title.innerHTML = comment.user
+            title_div.appendChild(comment_title)
+
+
+            date = comment.date.split("T")
+            comment.date = `${date[0]} ${date[1]} UTC`
+            comment_date = document.createElement("p")
+            comment_date.innerHTML = comment.date
+            title_div.appendChild(comment_date)
+
+            comment_div.appendChild(title_div)
+
+            comment_text = document.createElement("p")
+            comment_text.innerHTML = comment.text
+            comment_div.appendChild(comment_text)
+
+            comment_section.appendChild(comment_div)
+        }
+
+        comments_offset += data["comments"].length
+        total_comments_count = Number(data["count"])
+        total_comments_number_text = document.getElementById("total-comments-number-text")
+        total_comments_number_text.innerHTML = `(${total_comments_count})`
+
+        load_more_comments_button = document.getElementById("load-more-comments-button")
+        load_more_comments_button.hidden = (comments_offset >= total_comments_count)
+    })
+}
+
+function submitComment() {
+    insert_comment_section = document.getElementById("insert-comment-section")
+
+    user = insert_comment_section.childNodes[1].childNodes[3].value
+    contact = insert_comment_section.childNodes[3].childNodes[3].value
+    text = insert_comment_section.childNodes[5].childNodes[3].value
+    date = new Date(Date.now())
+    date_ = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}T${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds().toString().padStart(2, '0')}`
+    getData(`${location.origin}/comments/add?date=${date_}&user=${user}&text=${text}&contact=${contact}`, (data) => {
+        if(data["status"] == "success") {
+            comments_offset = 0
+            loadComments()
+        }
+    })
+}
+
 function pageOnScroll(event) {
     // return // boh forse ci torno
     if (window.innerWidth > 730) return
@@ -124,7 +190,7 @@ function pageOnScroll(event) {
         const wHeight32 = wHeight / 10 * 6
         const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
         // devo mettere  + el.offsetHeight da qualche parte
-        //                              chiusura        : apertura
+        //                                                chiusura        : apertura
         let factor = (elY < wHeight3 ? (elY / wHeight3 + el.offsetHeight) : (wHeight32 / elY))
         el.style.width = `${70 + clampNumber(factor * 20, 0, 20)}%`
     }
