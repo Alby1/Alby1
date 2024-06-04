@@ -65,6 +65,10 @@ footer {
     margin: auto;
 }
 
+#insert-comment-section button {
+    padding: 1rem 0
+}
+
 .flex-comment {
     display: flex;
     justify-content: baseline;
