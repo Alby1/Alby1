@@ -64,21 +64,25 @@
                 <p>{{ hosb_desc | safe }}</p>
             </div>
         </div>
+        
         <div class="flex-row"><h1>{{ my_contacts | safe }}</h1></div>
-        <div class="flex-responsive">
             <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
-            <!-- https://www.techiedelight.com/check-whether-image-is-loaded-with-javascript/ -->
-            
-            <div class="contact-item"><a alt="Twitter" rel="me noreferrer noopener" target="_blank" href="https://twitter.com/malbyx" me><img src="{{ url_for('static', path='images/twitter.png') }}"></a></div>
-            <div class="contact-item"><a alt="E-Mail" rel="me noreferrer noopener" target="_blank" href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}"></a></div>
-            <div class="contact-item"><a alt="Instagram" rel="me noreferrer noopener" target="_blank" href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}"></a></div>
-            <div class="contact-item"><a alt="YouTube - Gaming" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyx/" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
-        </div>
-        <div class="flex-responsive">
-            <div class="contact-item"><a alt="LinkedIn" rel="me noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}"></a></div>
-            <div class="contact-item"><a alt="Fediverse" rel="me noreferrer noopener" target="_blank" href="https://junimo.party/malbyx" me><img src="https://junimo.party/favicon.png" target="_blank"></a></div>
-            <div class="contact-item"><a alt="Github" rel="me noreferrer noopener" target="_blank" href="https://github.com/Alby1/" me><img src="{{ url_for('static', path='images/github.png') }}"></a></div>
-            <div class="contact-item"><a alt="Flickr" rel="me noreferrer noopener" target="_blank" href="https://www.flickr.com/people/malbyx/" me><img src="{{ url_for('static', path='images/flickr.png') }}"></a></div>
+            <!-- https://www.techiedelight.com/check-whether-image-is-loaded-with-javascript/ -->            
+            <div class="flex-responsive">
+                    <div class="contact-item"><a alt="Twitter" rel="me noreferrer noopener" target="_blank" href="https://twitter.com/malbyx" me><img src="{{ url_for('static', path='images/twitter.png') }}"></a></div>
+                    <div class="contact-item"><a alt="E-Mail" rel="me noreferrer noopener" target="_blank" href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}"></a></div>
+                    <div class="contact-item"><a alt="Instagram" rel="me noreferrer noopener" target="_blank" href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}"></a></div>
+            </div>
+            <div class="flex-responsive">
+                <div class="contact-item"><a alt="LinkedIn" rel="me noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}"></a></div>
+                <div class="contact-item"><a alt="Fediverse" rel="me noreferrer noopener" target="_blank" href="https://junimo.party/malbyx" me><img src="https://junimo.party/favicon.png" target="_blank"></a></div>
+                <div class="contact-item"><a alt="Github" rel="me noreferrer noopener" target="_blank" href="https://github.com/Alby1/" me><img src="{{ url_for('static', path='images/github.png') }}"></a></div>
+                <div class="contact-item"><a alt="Flickr" rel="me noreferrer noopener" target="_blank" href="https://www.flickr.com/people/malbyx/" me><img src="{{ url_for('static', path='images/flickr.png') }}"></a></div>
+            </div>
+            <div class="flex-responsive">
+                <div class="contact-item"><a alt="Twitch" rel="me noreferrer noopener" target="_blank" href="https://www.twitch.tv/malbyx"><img src="{{ url_for('static', path='images/twitch.png') }}"></a></div>
+                <div class="contact-item"><a alt="YouTube - Gaming" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyx/" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
+                <div class="contact-item"><a alt="YouTube - Vlogs" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyxvlog" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
         </div>
         <div class="flex-row">
             <h1>{{ fun_features_title | safe }}</h1>
@@ -145,6 +149,7 @@
         <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Dave Gandy - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/flickr" title="flickr icons">Flickr icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/twitch" title="twitch icons">Twitch icons created by Freepik - Flaticon</a>
     </div>
     <br>
 </footer>
