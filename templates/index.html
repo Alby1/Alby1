@@ -132,7 +132,7 @@
             </div>
             <div class="flex-item">
                 <label for="text">{{ leave_a_comment_text | safe}}</label>
-                <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" required>{{ leave_a_comment_textarea | safe}}</textarea>
+                <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" required placeholder="{{ leave_a_comment_textarea | safe}}"></textarea>
             </div>
             <div class="flex-item">
                 <button onclick="submitComment()">{{ leave_a_comment_submit | safe}}</button>
