@@ -236,7 +236,7 @@ textarea {
 
 @media not (pointer: fine) {
     .contact-item {
-        background: linear-gradient(135deg,  var(--contact-highlight) 50%, var(--item-background-color) 50%) right;
+        background: linear-gradient(135deg,  var(--contact-highlight) 45%, var(--item-background-color) 50%) right;
         background-size: 500%;
         transition: background-position 100ms ease-in-out;
     }
