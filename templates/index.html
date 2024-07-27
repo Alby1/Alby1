@@ -20,6 +20,7 @@
 </head>
 <body>
     <span id="mouse_shadow"></span>
+    <div id="has-mouse" hidden></div>
     <div id="lan_selector">
         <a href="/it"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
         <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
@@ -32,39 +33,41 @@
         <div class="flex-responsive">
             <p>{{ presenting_text | safe }}</p>
         </div>
-        <div class="flex-row"><h1>{{ my_projects | safe }}</h1></div>
-        <div class="flex-responsive">
-            <div class="flex-item mobile-animation">
-                <h2>{{ salama_title | safe }}</h2>
-                <a href="http://vabenla.it">{{ primary_link | safe }}</a>
-                <a href="https://salama.malbyx.eu">{{ secondary_link | safe }}</a>
-                <p>{{ salama_desc | safe }}</p>
+        <div id="projects-container">
+            <div class="flex-row"><h1>{{ my_projects | safe }}</h1></div>
+            <div class="flex-responsive">
+                <div class="flex-item mobile-animation">
+                    <h2>{{ salama_title | safe }}</h2>
+                    <a href="http://vabenla.it">{{ primary_link | safe }}</a>
+                    <a href="https://salama.malbyx.eu">{{ secondary_link | safe }}</a>
+                    <p>{{ salama_desc | safe }}</p>
+                </div>
+                <div class="flex-item mobile-animation">
+                    <h2>{{ bitchis_title | safe }}</h2>
+                    <a href="https://lebitchis.malbyx.eu">{{ primary_link | safe }}</a>
+                    <a href="https://wordpress.malbyx.eu">{{ secondary_link | safe }}</a>
+                    <p>{{ bitchis_desc | safe }}</p>
+                </div>
             </div>
-            <div class="flex-item mobile-animation">
-                <h2>{{ bitchis_title | safe }}</h2>
-                <a href="https://lebitchis.malbyx.eu">{{ primary_link | safe }}</a>
-                <a href="https://wordpress.malbyx.eu">{{ secondary_link | safe }}</a>
-                <p>{{ bitchis_desc | safe }}</p>
-            </div>
-        </div>
 
-        <div class="flex-responsive">
-            <div class="flex-item mobile-animation">
-                <h2>Elevate Game Studio</h2>
-                <a href="https://egs.malbyx.eu">{{ primary_link | safe }}</a>
-                <!-- <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a> -->
-                <p>{{ elevate_desc | safe }}</p>
-            </div>
-            <div class="flex-item mobile-animation">
-                <h2>TMS</h2>
-                <a href="https://tms.malbyx.eu/">{{ primary_link | safe }}</a>
-                <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
-                <p>{{ tms_desc | safe }}</p>
-            </div>
-            <div class="flex-item mobile-animation">
-                <h2>HOSB</h2>
-                <a href="https://hosb.malbyx.eu/">{{ link | safe }}</a>
-                <p>{{ hosb_desc | safe }}</p>
+            <div class="flex-responsive">
+                <div class="flex-item mobile-animation">
+                    <h2>Elevate Game Studio</h2>
+                    <a href="https://egs.malbyx.eu">{{ primary_link | safe }}</a>
+                    <!-- <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a> -->
+                    <p>{{ elevate_desc | safe }}</p>
+                </div>
+                <div class="flex-item mobile-animation">
+                    <h2>TMS</h2>
+                    <a href="https://tms.malbyx.eu/">{{ primary_link | safe }}</a>
+                    <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
+                    <p>{{ tms_desc | safe }}</p>
+                </div>
+                <div class="flex-item mobile-animation">
+                    <h2>HOSB</h2>
+                    <a href="https://hosb.malbyx.eu/">{{ link | safe }}</a>
+                    <p>{{ hosb_desc | safe }}</p>
+                </div>
             </div>
         </div>
         

@@ -1,5 +1,6 @@
 let comments_offset
 let total_comments_count
+let has_mouse
 
 const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
 
@@ -87,34 +88,40 @@ function onLoad() {
     loadComments()       
        
 
-    // grazie https://github.com/SchiavoAnto
-    for (const iterator of document.querySelectorAll(".contact-item")) {
-        const img = iterator.querySelector("a > img")
-        
-        iterator.onmousemove = e =>  {
-            const it_rect = iterator.getBoundingClientRect()
-            const img_rect = img.getBoundingClientRect()
-            let x = e.clientX - img.offsetWidth / 2 - img_rect.x
-            let y = e.clientY - img.offsetHeight / 2 - img_rect.y
-
-            let sX = (Math.abs(e.clientX - (it_rect.left + it_rect.width / 2)) + 1)
-            let sY = (Math.abs(e.clientY - (it_rect.top + it_rect.height / 2)) + 1)
-            sX = Math.sqrt(Math.pow(it_rect.width, 2) + Math.pow(it_rect.height, 2)) / Math.sqrt(Math.pow(sX, 2) + Math.pow(sY, 1.5)) - 3
+    let has_mouse_ = document.getElementById("has-mouse")
+    has_mouse = getComputedStyle(has_mouse_).getPropertyValue('--has-mouse') == "true"
+    if(has_mouse) {
+        // grazie https://github.com/SchiavoAnto
+        for (const iterator of document.querySelectorAll(".contact-item")) {
+            const img = iterator.querySelector("a > img")
             
-            const keyframes = {
-                transform: `translate(${x/2}px, ${y/3}px) scale(${clampNumber(sX, 1, 1.5)})`
+            iterator.onmousemove = e =>  {
+                const it_rect = iterator.getBoundingClientRect()
+                const img_rect = img.getBoundingClientRect()
+                let x = e.clientX - img.offsetWidth / 2 - img_rect.x
+                let y = e.clientY - img.offsetHeight / 2 - img_rect.y
+
+                let sX = (Math.abs(e.clientX - (it_rect.left + it_rect.width / 2)) + 1)
+                let sY = (Math.abs(e.clientY - (it_rect.top + it_rect.height / 2)) + 1)
+                sX = Math.sqrt(Math.pow(it_rect.width, 2) + Math.pow(it_rect.height, 2)) / Math.sqrt(Math.pow(sX, 2) + Math.pow(sY, 1.5)) - 3
+                
+                const keyframes = {
+                    transform: `translate(${x/2}px, ${y/3}px) scale(${clampNumber(sX, 1, 1.5)})`
+                }
+
+                img.animate(keyframes,{
+                    duration: 800,
+                    fill: "forwards"
+                })
             }
 
-            img.animate(keyframes,{
-                duration: 800,
-                fill: "forwards"
-            })
-        }
-
-        iterator.onmouseleave = e => {
-            img.animate({transform: `translate(0px, 0px)`}, {duration: 300, fill: "forwards", easing: "cubic-bezier(.3,-0.45,.32,1.6)"})
+            iterator.onmouseleave = e => {
+                img.animate({transform: `translate(0px, 0px)`}, {duration: 300, fill: "forwards", easing: "cubic-bezier(.3,-0.45,.32,1.6)"})
+            }
         }
     }
+
+    
     
 } 
     
@@ -224,14 +231,34 @@ function pageOnScroll(event) {
         const wHeight32 = wHeight / 10 * 6
         const closingHeight = (el.closingHeight) ? el.closingHeight : el.offsetHeight
         
-
-        //                                                       chiusura        : apertura
-        let factor = (elY < wHeight3 ? ((elY + closingHeight / 10*9) / wHeight3 ) : (wHeight32 / elY))
         const max_factor = 20
+        let chiusura = ((elY + closingHeight / 10*9) / wHeight3 )
+        chiusura = max_factor
+        //                             chiusura :  apertura
+        let factor = (elY < wHeight3 ? chiusura : (wHeight32 / elY))
         let clampedFactor = clampNumber(factor * 20, 0, max_factor)
 
         if(clampedFactor == max_factor && !el.closingHeight) el.closingHeight = el.offsetHeight
         el.style.width = `${70 + clampedFactor}%`
+
+        if(!has_mouse) {
+            let gradientPosition = (Math.abs(wHeight/2 - elY - wHeight/10) ) - wHeight / 10
+            el.style.backgroundPosition = `${clampNumber(gradientPosition, 0 , 70)}%`
+
+            let img = el.querySelector('a > img')
+            if(img) {
+                if(el.classList.contains("invert_icon")) img.style.filter = `invert(${95 / clampNumber(gradientPosition - 50, 1, 95)}%)`
+
+                const keyframes = {
+                    transform: `scale(${1.25 / clampNumber(gradientPosition, 1, 1.25)})`
+                }
+
+                img.animate(keyframes,{
+                    duration: 100,
+                    fill: "forwards"
+                })
+            }
+        }
     }
 }
 
