@@ -86,7 +86,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
     align-content: flex-start;
     background-color: var(--item-background-color);
     border-radius: 20px;
-    padding: 3ch;
+    padding: 3ch 3vw;
     padding-top: 1ch;
     padding-bottom: 1ch;
     margin: 0;
