@@ -1,6 +1,8 @@
 :root {
     --item-background-color: rgba(0, 53, 53, 0.1);
     --comment-section-form-background-color: #1a1b1c;
+    --comment-section-form-highlight-background-color: #7a7b7c;
+    --comment-section-form-interaction-background-color: #5a5b5c;
     --comment-section-form-text-color: #ececec;
     --main-background-color: darkslategray;
     --main-color: gainsboro;
@@ -140,6 +142,16 @@ textarea {
     color: var(--comment-section-form-text-color);
     border: none;
 }
+
+#insert-comment-section button:hover {
+    background-color: var(--comment-section-form-highlight-background-color);
+}
+
+#insert-comment-section button:active {
+    background-color: var(--comment-section-form-interaction-background-color);
+}
+
+
 
 @media only screen and (max-width: 730px) {
     .flex-responsive {
