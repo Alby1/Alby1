@@ -234,28 +234,27 @@ textarea {
 
 
 
+@media not (pointer: fine) {
+    .contact-item {
+        background: linear-gradient(135deg,  var(--contact-highlight) 50%, var(--item-background-color) 50%) right;
+        background-size: 500%;
+        transition: background-position 100ms ease-in-out;
+    }
 
-.contact-item {
-    background: linear-gradient(135deg,  var(--contact-highlight) 50%, var(--item-background-color) 50%) right;
-    background-size: 500%;
-    transition: background 100ms ease-in-out;
-}
-
-#has-mouse {
-    --has-mouse:false;
+    #has-mouse {
+        --has-mouse:false;
+    }
 }
 @media (pointer: fine) {
     .contact-item {
         background: linear-gradient(135deg,  var(--contact-highlight) 25%, var(--item-background-color) 75%) right;
         background-size: 500%;
-        transition: background 500ms ease-in-out;
+        transition: background-position 500ms ease-in-out;
     }
     
     .contact-item:hover {
-        /* background-color: var(--contact-highlight);
-        transition: 500ms background-color; */
         background-position: left;
-        transition: background 750ms background-position;
+        transition: background-position 750ms;
     }
     .invert_icon > a > img {
         transition: filter 500ms ease-in-out;

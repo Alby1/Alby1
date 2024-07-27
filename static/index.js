@@ -5,8 +5,10 @@ let has_mouse
 const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
 
 function onLoad() {
+    let has_mouse_ = document.getElementById("has-mouse")
+    has_mouse = getComputedStyle(has_mouse_).getPropertyValue('--has-mouse') == "true"
+
     document.addEventListener("scroll", pageOnScroll)
-    pageOnScroll()
     /* document.addEventListener("mousemove", mouseOnMove, {passive: true})
     SWidth = 100
     SHeight = 100
@@ -88,8 +90,6 @@ function onLoad() {
     loadComments()       
        
 
-    let has_mouse_ = document.getElementById("has-mouse")
-    has_mouse = getComputedStyle(has_mouse_).getPropertyValue('--has-mouse') == "true"
     if(has_mouse) {
         // grazie https://github.com/SchiavoAnto
         for (const iterator of document.querySelectorAll(".contact-item")) {
@@ -123,6 +123,7 @@ function onLoad() {
 
     
     
+    pageOnScroll()
 } 
     
     
@@ -242,6 +243,7 @@ function pageOnScroll(event) {
         el.style.width = `${70 + clampedFactor}%`
 
         if(!has_mouse) {
+            console.log("non")
             let gradientPosition = (Math.abs(wHeight/2 - elY - wHeight/10) ) - wHeight / 10
             el.style.backgroundPosition = `${clampNumber(gradientPosition, 0 , 70)}%`
 
