@@ -1,5 +1,12 @@
-/* TODO: CONVERTIRE A GRID 
-https://css-tricks.com/snippets/css/complete-guide-grid/ */
+:root {
+    --item-background-color: rgba(0, 53, 53, 0.1);
+    --comment-section-form-background-color: #1a1b1c;
+    --comment-section-form-text-color: #ececec;
+    --main-background-color: darkslategray;
+    --main-color: gainsboro;
+    --link-color: aquamarine;
+}
+
 
 footer {
     width: 100%;
@@ -7,6 +14,10 @@ footer {
     margin-bottom: 2px;
 }
 
+
+
+/* TODO: CONVERTIRE A GRID 
+https://css-tricks.com/snippets/css/complete-guide-grid/ */
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -27,11 +38,12 @@ footer {
 
 .flex-item,
 .contact-item {
+    position: relative;
     display: flex;
     justify-content: baseline;
     flex-direction: column;
     align-content: flex-start;
-    background-color: rgba(0, 53, 53, 0.1);
+    background-color: var(--item-background-color);
     border-radius: 20px;
     padding: 3ch;
     margin: 0;
@@ -70,7 +82,7 @@ footer {
     justify-content: baseline;
     flex-direction: column;
     align-content: flex-start;
-    background-color: rgba(0, 53, 53, 0.1);
+    background-color: var(--item-background-color);
     border-radius: 20px;
     padding: 3ch;
     padding-top: 1ch;
@@ -103,25 +115,30 @@ footer {
 }
 
 input {
+    margin-top: 1ch;
 	height: 3ch;
 	border-radius: 5px;
-	padding: 5px;
-    background-color: #1a1b1c;
-    color: #ececec;
+	padding: 1.5ch;
+    background-color: var(--comment-section-form-background-color);
+    color: var(--comment-section-form-text-color);
+    border: none;
 }
 
 textarea {
+    margin-top: 1ch;
 	border-radius: 5px;
-	padding: 5px;
-    background-color: #1a1b1c;
-    color: #ececec;
+	padding: 2ch;
+    background-color: var(--comment-section-form-background-color);
+    color: var(--comment-section-form-text-color);
+    border: none;
 }
 
 #insert-comment-section button {
     padding: 1rem 0;
 	border-radius: 5px;
-    background-color: #1a1b1c;
-    color: #ececec;
+    background-color: var(--comment-section-form-background-color);
+    color: var(--comment-section-form-text-color);
+    border: none;
 }
 
 @media only screen and (max-width: 730px) {
@@ -131,9 +148,14 @@ textarea {
         justify-self: center;
     }
 
-    .flex-item {
+    .flex-item, .contact-item {
         margin: auto;
-        width: 90%;
+        width: 85%;
+    }
+
+    #insert-comment-section {
+        margin: auto;
+        width: 100%;
     }
 
     .contact-item img {
@@ -190,6 +212,31 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:0;
+}
+
+
+.contact-item {
+
+    background: linear-gradient(135deg,  var(--contact-highlight) 25%, var(--item-background-color) 75%) right;
+    background-size: 500%;
+    transition: 500ms ease-in-out;
+}
+
+.contact-item:hover {
+    /* background-color: var(--contact-highlight);
+    transition: 500ms background-color; */
+    background-position: left;
+    transition: 750ms background-position;
+}
+
+.invert_icon > a > img {
+    transition: filter 500ms ease-in-out;
+}
+
+.invert_icon:hover > a > img {
+    filter: invert(95%);
+    transition: filter 750ms;
 }
 
 html {
@@ -206,8 +253,8 @@ h6 {
 }
 
 body {
-    background-color: darkslategray;
-    color: gainsboro;
+    background-color: var(--main-background-color);
+    color: var(--main-color);
     height: 100%;
     margin: 0;
 }
@@ -217,7 +264,7 @@ br {
 }
 
 a {
-    color: aquamarine;
+    color: var(--link-color);
     margin-bottom: .3ch;
     font-family: "JetBrainsMono-LightItalic";
 }

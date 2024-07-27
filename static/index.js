@@ -1,6 +1,8 @@
 let comments_offset
 let total_comments_count
 
+const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
+
 function onLoad() {
     document.addEventListener("scroll", pageOnScroll)
     pageOnScroll()
@@ -9,8 +11,8 @@ function onLoad() {
     SHeight = 100
     shadow = document.getElementById("mouse_shadow")
     shadow.style.width = SWidth + "px"
-    shadow.style.height = SHeight + "px" */
-    /* let img = document.getElementById("img")
+    shadow.style.height = SHeight + "px"
+    let img = document.getElementById("img")
     console.log(img.complete, img.naturalHeight) */
 
 
@@ -82,10 +84,42 @@ function onLoad() {
     loadRecentTracks()
 
     comments_offset = 0
-    loadComments()
-}
+    loadComments()       
+       
 
-async function loadRecentTracks() {
+    // grazie https://github.com/SchiavoAnto
+    for (const iterator of document.querySelectorAll(".contact-item")) {
+        const img = iterator.querySelector("a > img")
+        
+        iterator.onmousemove = e =>  {
+            const it_rect = iterator.getBoundingClientRect()
+            const img_rect = img.getBoundingClientRect()
+            let x = e.clientX - img.offsetWidth / 2 - img_rect.x
+            let y = e.clientY - img.offsetHeight / 2 - img_rect.y
+
+            let sX = (Math.abs(e.clientX - (it_rect.left + it_rect.width / 2)) + 1)
+            let sY = (Math.abs(e.clientY - (it_rect.top + it_rect.height / 2)) + 1)
+            sX = Math.sqrt(Math.pow(it_rect.width, 2) + Math.pow(it_rect.height, 2)) / Math.sqrt(Math.pow(sX, 2) + Math.pow(sY, 1.5)) - 3
+            
+            const keyframes = {
+                transform: `translate(${x/2}px, ${y/3}px) scale(${clampNumber(sX, 1, 1.5)})`
+            }
+
+            img.animate(keyframes,{
+                duration: 800,
+                fill: "forwards"
+            })
+        }
+
+        iterator.onmouseleave = e => {
+            img.animate({transform: `translate(0px, 0px)`}, {duration: 300, fill: "forwards", easing: "cubic-bezier(.3,-0.45,.32,1.6)"})
+        }
+    }
+    
+} 
+    
+    
+    async function loadRecentTracks() {
     while(true) {
         getData(`${location.origin}/lastfm/recent_tracks`, (data) => {
             let listening_to = document.getElementById("listening_to")
@@ -182,17 +216,22 @@ function submitComment() {
 function pageOnScroll(event) {
     // return // boh forse ci torno
     if (window.innerWidth > 730) return
-    let elements = document.getElementsByClassName("flex-item")
+    let elements = document.getElementsByClassName("mobile-animation")
     for (el of elements) {
         let elY = el.getBoundingClientRect().y
         const wHeight = window.innerHeight
-        const wHeight3 = wHeight / 5
+        const wHeight3 = wHeight / 10
         const wHeight32 = wHeight / 10 * 6
-        const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
-        // devo mettere  + el.offsetHeight da qualche parte
-        //                                                chiusura        : apertura
-        let factor = (elY < wHeight3 ? (elY / wHeight3 + el.offsetHeight) : (wHeight32 / elY))
-        el.style.width = `${70 + clampNumber(factor * 20, 0, 20)}%`
+        const closingHeight = (el.closingHeight) ? el.closingHeight : el.offsetHeight
+        
+
+        //                                                       chiusura        : apertura
+        let factor = (elY < wHeight3 ? ((elY + closingHeight / 10*9) / wHeight3 ) : (wHeight32 / elY))
+        const max_factor = 20
+        let clampedFactor = clampNumber(factor * 20, 0, max_factor)
+
+        if(clampedFactor == max_factor && !el.closingHeight) el.closingHeight = el.offsetHeight
+        el.style.width = `${70 + clampedFactor}%`
     }
 }
 
