@@ -16,92 +16,133 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='images/favicon.png') }}">
     <script src="{{ url_for('static', path='index.js')}}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', path='index.css') }}" onload="onLoad()">
+    <link rel="stylesheet" href="{{ css | safe }}">
+
 </head>
-<body>
+<lan hidden>{{ lan | safe }}</lan>
+<theme hidden>{{ theme | safe }}</theme>
+<body class="is-dark">
     <span id="mouse_shadow"></span>
     <div id="has-mouse" hidden></div>
-    <div id="lan_selector">
-        <a href="/it"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
-        <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
-        <!-- <a href="/de"><img src="{{ url_for('static', path='images/de.png')}}" alt="DE"></a> -->
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="display: flex;justify-self: flex-end;margin-left: 2rem;align-items: center;padding-top: .5rem; width: fit-content;" class="nes-select is-dark">
+            <p>Theme:</p>
+            <select name="" id="theme_selector" oninput="changeTheme()" class="">
+                <option value="default">Default</option>
+                <option value="98">Win 98</option>
+                <option value="xp">Win XP</option>
+                <option value="7">Win 7</option>
+                <option value="nes">NES</option>
+                <!-- <option value="cs16">CS 1.6</option>
+                <option value="paper">Paper</option> -->
+                <!-- TODO: 
+                        https://cs16.samke.me/
+                        https://www.getpapercss.com/docs/layout/container/ -->
+            </select>
+        </div>
+        <div id="lan_selector">
+            <a href="/it"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
+            <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
+            <!-- <a href="/de"><img src="{{ url_for('static', path='images/de.png')}}" alt="DE"></a> -->
+        </div>
     </div>
     <!-- IDEA: quando in verticale fare che le zone si ingrandiscano con lo scorrimento -->
     <!-- IDEA: effetto ombra del mouse nelle zone  -->
     <div style="margin-bottom: 1%;">
-        <div class="flex-row"><h1>{{ presenting_title | safe }}</h1></div>
-        <div class="flex-responsive">
-            <p>{{ presenting_text | safe }}</p>
+        <div class="window nes-container is-dark with-title">
+            <div class="flex-row title-bar title"><div class="title-bar-text">{{ presenting_title | safe }}</div></div>
+            <div class="flex-responsive window-body">
+                <p>{{ presenting_text | safe }}</p>
+            </div>
         </div>
-        <div id="projects-container">
-            <div class="flex-row"><h1>{{ my_projects | safe }}</h1></div>
+        <div class="spacer" style="margin-top: 25px;"></div>
+        <div id="projects-container" class="nes-container is-dark with-title">
+            <div class="flex-row title-bar title"><div class="title-bar-text" style="font-size: 1.5em;">{{ my_projects | safe }}</div></div>
+            <div class="spacer" style="margin-top: 10px;"></div>
             <div class="flex-responsive">
-                <div class="flex-item mobile-animation">
-                    <h2>{{ salama_title | safe }}</h2>
-                    <a href="http://vabenla.it">{{ primary_link | safe }}</a>
-                    <a href="https://salama.malbyx.eu">{{ secondary_link | safe }}</a>
-                    <p>{{ salama_desc | safe }}</p>
+                <div class="flex-item mobile-animation window nes-container is-dark with-title">
+                    <div class="title-bar title"><div class="title-bar-text h2">{{ salama_title | safe }}</div></div>
+                    <div class="window-body">
+                        <a href="http://vabenla.it">{{ primary_link | safe }}</a>
+                        <a href="https://salama.malbyx.eu">{{ secondary_link | safe }}</a>
+                        <p>{{ salama_desc | safe }}</p>
+                    </div>
                 </div>
-                <div class="flex-item mobile-animation">
-                    <h2>{{ bitchis_title | safe }}</h2>
-                    <a href="https://lebitchis.malbyx.eu">{{ primary_link | safe }}</a>
-                    <a href="https://wordpress.malbyx.eu">{{ secondary_link | safe }}</a>
-                    <p>{{ bitchis_desc | safe }}</p>
+                <div class="flex-item mobile-animation window nes-container is-dark with-title">
+                    <div class="title-bar title"><div class="title-bar-text h2">{{ bitchis_title | safe }}</div></div>
+                    <div class="window-body">
+                        <a href="https://lebitchis.malbyx.eu">{{ primary_link | safe }}</a>
+                        <a href="https://wordpress.malbyx.eu">{{ secondary_link | safe }}</a>
+                        <p>{{ bitchis_desc | safe }}</p>
+                    </div>
                 </div>
             </div>
 
             <div class="flex-responsive">
-                <div class="flex-item mobile-animation">
-                    <h2>Elevate Game Studio</h2>
-                    <a href="https://egs.malbyx.eu">{{ primary_link | safe }}</a>
-                    <!-- <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a> -->
-                    <p>{{ elevate_desc | safe }}</p>
+                <div class="flex-item mobile-animation window nes-container is-dark with-title">
+                    <div class="title-bar title"><div class="title-bar-text h2">Elevate Game Studio</div></div>
+                    <div class="window-body">
+                        <a href="https://egs.malbyx.eu">{{ primary_link | safe }}</a>
+                        <!-- <a href="https://elevategamestudio.tk">{{ secondary_link | safe }}</a> -->
+                        <p>{{ elevate_desc | safe }}</p>
+                    </div>
                 </div>
-                <div class="flex-item mobile-animation">
-                    <h2>TMS</h2>
-                    <a href="https://tms.malbyx.eu/">{{ primary_link | safe }}</a>
-                    <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
-                    <p>{{ tms_desc | safe }}</p>
+                <div class="flex-item mobile-animation window nes-container is-dark with-title">
+                    <div class="title-bar title"><div class="title-bar-text h2">TMS</div></div>
+                    <div class="window-body">
+                        <a href="https://tms.malbyx.eu/">{{ primary_link | safe }}</a>
+                        <a href="https://teamms.netlify.app/">{{ secondary_link | safe }}</a>
+                        <p>{{ tms_desc | safe }}</p>
+                    </div>
                 </div>
-                <div class="flex-item mobile-animation">
-                    <h2>HOSB</h2>
-                    <a href="https://hosb.malbyx.eu/">{{ link | safe }}</a>
-                    <p>{{ hosb_desc | safe }}</p>
+                <div class="flex-item mobile-animation window nes-container is-dark with-title">
+                    <div class="title-bar title"><div class="title-bar-text h2">HOSB</div></div>
+                    <div class="window-body">
+                        <a href="https://hosb.malbyx.eu/">{{ link | safe }}</a>
+                        <p>{{ hosb_desc | safe }}</p>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="flex-row"><h1>{{ my_contacts | safe }}</h1></div>
+        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="flex-row title-bar"><div class="title-bar-text" style="font-size: 1.5em;">{{ my_contacts | safe }}</div></div>
+        <div class="spacer" style="margin-top: 10px;"></div>
             <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
             <!-- https://www.techiedelight.com/check-whether-image-is-loaded-with-javascript/ -->            
-            <div class="flex-responsive">
-                <div class="contact-item mobile-animation" style="--contact-highlight: #179cf0"><a alt="Twitter" rel="me noreferrer noopener" target="_blank" href="https://twitter.com/malbyx" me><img src="{{ url_for('static', path='images/twitter.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #0085ff"><a alt="Bluesky" rel="me noreferrer noopener" target="_blank" href="https://bsky.app/profile/malbyx.eu" me><img src="{{ url_for('static', path='images/bluesky.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #0073c6"><a alt="E-Mail" rel="me noreferrer noopener" target="_blank" href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #E4405F"><a alt="Instagram" rel="me noreferrer noopener" target="_blank" href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}"></a></div>
+            <div class="flex-responsive window nes-container is-dark">
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #179cf0"><a alt="Twitter" rel="me noreferrer noopener" target="_blank" href="https://twitter.com/malbyx" me><img src="{{ url_for('static', path='images/twitter.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #0085ff"><a alt="Bluesky" rel="me noreferrer noopener" target="_blank" href="https://bsky.app/profile/malbyx.eu" me><img src="{{ url_for('static', path='images/bluesky.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #0073c6"><a alt="E-Mail" rel="me noreferrer noopener" target="_blank" href="mailto:me@malbyx.eu" me><img src="{{ url_for('static', path='images/mail.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #E4405F"><a alt="Instagram" rel="me noreferrer noopener" target="_blank" href="https://www.instagram.com/malbyx/" me><img src="{{ url_for('static', path='images/instagram.png') }}"></a></div>
             </div>
-            <div class="flex-responsive">
-                <div class="contact-item mobile-animation" style="--contact-highlight: #0A66C2"><a alt="LinkedIn" rel="me noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #d47e09"><a alt="Fediverse" rel="me noreferrer noopener" target="_blank" href="https://a.junimo.party/@malbyx" me><img src="https://a-junimo-party-media.s3.fr-par.scw.cloud/a-junimo-party-media/site_uploads/files/000/000/001/48/2c4b5f9061672b4b.png" target="_blank"></a></div>
-                <div class="contact-item mobile-animation invert_icon" style="--contact-highlight: #181717"><a alt="Github" rel="me noreferrer noopener" target="_blank" href="https://github.com/Alby1/" me><img src="{{ url_for('static', path='images/github.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #f3f5f6"><a alt="Flickr" rel="me noreferrer noopener" target="_blank" href="https://www.flickr.com/people/malbyx/" me><img src="{{ url_for('static', path='images/flickr.png') }}"></a></div>
+            <div class="flex-responsive window nes-container is-dark">
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #0A66C2"><a alt="LinkedIn" rel="me noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/alberto-macchi" me><img src="{{ url_for('static', path='images/linkedin.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #d47e09"><a alt="Fediverse" rel="me noreferrer noopener" target="_blank" href="https://a.junimo.party/@malbyx" me><img src="https://a-junimo-party-media.s3.fr-par.scw.cloud/a-junimo-party-media/site_uploads/files/000/000/001/48/2c4b5f9061672b4b.png" target="_blank"></a></div>
+                <div class="contact-item mobile-animation window-body invert_icon" style="--contact-highlight: #181717"><a alt="Github" rel="me noreferrer noopener" target="_blank" href="https://github.com/Alby1/" me><img src="{{ url_for('static', path='images/github.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #f3f5f6"><a alt="Flickr" rel="me noreferrer noopener" target="_blank" href="https://www.flickr.com/people/malbyx/" me><img src="{{ url_for('static', path='images/flickr.png') }}"></a></div>
             </div>
-            <div class="flex-responsive">
-                <div class="contact-item mobile-animation" style="--contact-highlight: #9146FF"><a alt="Twitch" rel="me noreferrer noopener" target="_blank" href="https://www.twitch.tv/malbyx"><img src="{{ url_for('static', path='images/twitch.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #c00000"><a alt="YouTube - Gaming" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyx/" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #ff0000"><a alt="YouTube - Vlogs" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyxvlog" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
+            <div class="flex-responsive window nes-container is-dark">
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #9146FF"><a alt="Twitch" rel="me noreferrer noopener" target="_blank" href="https://www.twitch.tv/malbyx"><img src="{{ url_for('static', path='images/twitch.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #c00000"><a alt="YouTube - Gaming" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyx/" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #ff0000"><a alt="YouTube - Vlogs" rel="me noreferrer noopener" target="_blank" href="https://www.youtube.com/@malbyxvlog" me><img src="{{ url_for('static', path='images/youtube.png') }}"></a></div>
             </div>
-            <div class="flex-responsive">
-                <div class="contact-item mobile-animation invert_icon" style="--contact-highlight: #000000"><a alt="Steam" rel="me noreferrer noopener" target="_blank" href="https://steamcommunity.com/id/malbyx/" me><img src="{{ url_for('static', path='images/steam.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #FF66AA"><a alt="osu!" rel="me noreferrer noopener" target="_blank" href="https://osu.ppy.sh/users/malbyx" me><img src="{{ url_for('static', path='images/osu.png') }}"></a></div>
-                <div class="contact-item mobile-animation" style="--contact-highlight: #86328A"><a alt="Gog" rel="me noreferrer noopener" target="_blank" href="https://www.gog.com/u/Malbyx" me><img src="{{ url_for('static', path='images/gog.png') }}"></a></div>
+            <div class="flex-responsive window nes-container is-dark">
+                <div class="contact-item mobile-animation window-body invert_icon" style="--contact-highlight: #000000"><a alt="Steam" rel="me noreferrer noopener" target="_blank" href="https://steamcommunity.com/id/malbyx/" me><img src="{{ url_for('static', path='images/steam.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #FF66AA"><a alt="osu!" rel="me noreferrer noopener" target="_blank" href="https://osu.ppy.sh/users/malbyx" me><img src="{{ url_for('static', path='images/osu.png') }}"></a></div>
+                <div class="contact-item mobile-animation window-body" style="--contact-highlight: #86328A"><a alt="Gog" rel="me noreferrer noopener" target="_blank" href="https://www.gog.com/u/Malbyx" me><img src="{{ url_for('static', path='images/gog.png') }}"></a></div>
             </div>
-        <div class="flex-row">
-            <h1>{{ fun_features_title | safe }}</h1>
-        </div>
-        <div class="flex-responsive">
-            <div class="flex-item mobile-animation">
-                <h2>{{ music_info_title | safe }}</h2>
+
+
+        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="flex-row title-bar"><div class="title-bar-text" style="font-size: 1.5em;">{{ fun_features_title | safe }}</div></div>
+        <div class="spacer" style="margin-top: 10px;"></div>
+
+        <div class="flex-responsive window">
+            <div class="flex-item mobile-animation window-body nes-container is-dark with-title">
+                <h2 class="title">{{ music_info_title | safe }}</h2>
                 <p id="music_info_desc">{{ music_info_desc }}</p>
                 <a href="#" id="music_info_link">{{ music_info_link }}</a>
                 <p hidden>{{ listening_to | safe }} <a href="#" id="listening_to"></a></p>
@@ -121,45 +162,56 @@
                 <p>{{ powered_by_lastfm | safe }}<a href="https://www.last.fm/about">Last.fm</a></p>
             </div>
         </div>
-        <div class="flex-row">
-            <h1>{{ comments_title | safe }}</h1>
-            <p id="total-comments-number-text"></p>
-            <p id="comments-anonymous" hidden>{{ comments_anonymous | safe}}</p>
-        </div>
-        <div id="flex-comment-section"> </div>
-        <div class="flex-row">
-            <button id="load-more-comments-button" onclick="loadComments()" hidden>{{ comments_loadmore_button | safe}}</button>
-        </div>
-        <div class="flex-row">
-            <h2>{{ leave_a_comment_title | safe}}</h2>
-        </div>
-        <div id="insert-comment-section">
-            <div class="flex-item">
-                <label for="username">{{ leave_a_comment_username | safe}}</label>
-                <input name="username" id="username" type="text" placeholder="{{ leave_a_comment_username_placeholder | safe}}">
+
+
+        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="nes-container is-dark with-title">
+            <div class="flex-row title-bar title">
+                <div class="title-bar-text" style="font-size: 1.5em;">{{ comments_title | safe }}</div>
+                <div class="title-bar-controls"><p id="total-comments-number-text"></p></div>
+                <p id="comments-anonymous" hidden>{{ comments_anonymous | safe}}</p>
             </div>
-            <div class="flex-item">
-                <label for="contact">{{ leave_a_comment_contact | safe}}</label>
-                <input name="contact" id="contact" type="text" placeholder="{{ leave_a_comment_contact_placeholder | safe}}">
+            <div id="flex-comment-section"> </div>
+            <div class="flex-row">
+                <button id="load-more-comments-button" onclick="loadComments()" hidden>{{ comments_loadmore_button | safe}}</button>
             </div>
-            <div class="flex-item">
-                <label for="text">{{ leave_a_comment_text | safe}}</label>
-                <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" required placeholder="{{ leave_a_comment_textarea | safe}}"></textarea>
-            </div>
-            <div class="flex-item">
-                <button onclick="submitComment()">{{ leave_a_comment_submit | safe}}</button>
+        </div>
+
+        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="nes-container is-dark with-title">
+            <div class="flex-row title-bar title"><div class="title-bar-text h2">{{ leave_a_comment_title | safe}}</div></div>
+            <div id="insert-comment-section" class="window">
+                <div class="window-body">
+                    <div class="flex-item">
+                        <label for="username">{{ leave_a_comment_username | safe}}</label>
+                        <input name="username" id="username" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_username_placeholder | safe}}">
+                    </div>
+                    <div class="flex-item">
+                        <label for="contact">{{ leave_a_comment_contact | safe}}</label>
+                        <input name="contact" id="contact" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_contact_placeholder | safe}}">
+                    </div>
+                    <div class="flex-item">
+                        <label for="text">{{ leave_a_comment_text | safe}}</label>
+                        <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" class="nes-textarea is-dark" required placeholder="{{ leave_a_comment_textarea | safe}}"></textarea>
+                    </div>
+                    <div class="flex-item">
+                        <button onclick="submitComment()">{{ leave_a_comment_submit | safe}}</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
-<footer>
-    <div class="flex-responsive">
+<br><br>
+<footer class="window nes-container is-dark">
+    <br>
+    <div class="flex-responsive window-body">
         <a href="https://www.flaticon.com/free-icons/twitter" title="twitter icons">Twitter icons created by Pixel perfect - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by edt.im - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by riajulislam - Flaticon</a>
     </div>
-    <div class="flex-responsive">        
+    <div class="flex-responsive window-body">
         <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Dave Gandy - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/flickr" title="flickr icons">Flickr icons created by Freepik - Flaticon</a>

@@ -1,6 +1,8 @@
 let comments_offset
 let total_comments_count
 let has_mouse
+let language
+let theme
 
 const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
 
@@ -18,6 +20,16 @@ function onLoad() {
     let img = document.getElementById("img")
     console.log(img.complete, img.naturalHeight) */
 
+    language = document.getElementsByTagName("lan")[0].innerHTML
+
+    theme = document.getElementsByTagName("theme")[0].innerHTML
+    if(theme) {
+        document.getElementById("theme_selector").value = theme
+        let lans = document.getElementById("lan_selector")
+        for (const lan of lans.children) {
+            lan.href += "/" + theme
+        }
+    }
 
 
     getData(`${location.origin}/lastfm/top_artists`, (data) => {
@@ -168,8 +180,11 @@ function loadComments() {
         comments_anonymous = document.getElementById("comments-anonymous").innerHTML
         if(comments_offset == 0) comment_section.innerHTML = ""
         for (const comment of data["comments"]) {
+            comment_altro_div = document.createElement("div")
+            comment_altro_div.className = "flex-comment window"
+
             comment_div = document.createElement("div")
-            comment_div.className = "flex-comment"
+            comment_div.className = "window-body"
             
             title_div = document.createElement("div")
             title_div.className = "comment-title"
@@ -192,7 +207,8 @@ function loadComments() {
             comment_text.innerHTML = comment.text
             comment_div.appendChild(comment_text)
 
-            comment_section.appendChild(comment_div)
+            comment_altro_div.appendChild(comment_div)
+            comment_section.appendChild(comment_altro_div)
         }
 
         comments_offset += data["comments"].length
@@ -223,6 +239,7 @@ function submitComment() {
 
 function pageOnScroll(event) {
     // return // boh forse ci torno
+    if (theme != "default") return
     if (window.innerWidth > 730) return
     let elements = document.getElementsByClassName("mobile-animation")
     for (el of elements) {
@@ -275,3 +292,8 @@ async function getData(url, func) {
     if(data.status == 200) func(await data.json())
 }
 
+
+function changeTheme() {
+    let theme = document.getElementById("theme_selector").value
+    document.location.pathname = `/${language}/${theme}`
+}

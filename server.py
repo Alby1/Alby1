@@ -115,7 +115,8 @@ async def comments_get(offset: int = 0):
     for c in obj:
         comments.append({"user": c.user, "text": c.text, "date": c.date})
     count = session.query(db.Comment).count()
-    result = {"comments": comments, "count": count}  
+    result = {"comments": comments, "count": count}
+    session.close()
     return result
 
 @app.get("/comments/add")
@@ -132,15 +133,25 @@ async def comments_add(user: str, text: str, date: str, contact: str):
 
 @app.get("/{lan}", response_class=HTMLResponse)
 async def read_item(request: Request, lan: str):
-    if len(lan) > 2:
-        return RedirectResponse(f"/{lan[:2]}")
+    return RedirectResponse(f"/{lan}/default")
 
+
+themes: dict[(str, str)] = { "default" : "/static/default.css", "98": "https://unpkg.com/98.css", "xp": "https://unpkg.com/xp.css", "7" : "https://unpkg.com/7.css", "cs16": "https://cdn.jsdelivr.net/gh/ekmas/cs16.css@main/css/cs16.min.css", "nes": "https://unpkg.com/nes.css@2.3.0/css/nes.min.css", "paper": "https://unpkg.com/papercss@1.9.2/dist/paper.min.css" }
+
+@app.get("/{lan}/{theme}", response_class=HTMLResponse)
+async def read_item2(request: Request, lan: str, theme: str):
+    if len(lan) > 2:
+        return RedirectResponse(f"/{lan[:2]}/{theme}")
+    
     try:
         obj = {**get_file("en"), **get_file(lan)}
     except Exception:
         return RedirectResponse("/it")
+    
     obj["request"] = request
     obj["lan"] = lan
+    obj["css"] = themes[theme]
+    obj["theme"] = theme
     return templates.TemplateResponse("index.html", obj)
 
 
