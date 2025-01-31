@@ -222,11 +222,12 @@ function loadComments() {
 }
 
 function submitComment() {
-    insert_comment_section = document.getElementById("insert-comment-section")
+    let insert_comment_section = document.getElementById("insert-comment-section")
+    
 
-    user = insert_comment_section.childNodes[1].childNodes[3].value
-    contact = insert_comment_section.childNodes[3].childNodes[3].value
-    text = insert_comment_section.childNodes[5].childNodes[3].value
+    user = insert_comment_section.children[0].children[0].children[1].value
+    contact = insert_comment_section.children[0].children[1].children[1].value
+    text = insert_comment_section.children[0].children[2].children[1].value
     date = new Date(Date.now())
     date_ = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}T${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds().toString().padStart(2, '0')}`
     getData(`${location.origin}/comments/add?date=${date_}&user=${user}&text=${text}&contact=${contact}`, (data) => {
