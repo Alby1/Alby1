@@ -52,11 +52,11 @@
                 <details>
                   <summary>Theme:</summary>
                   <ul>
-                    <li><a href="./it/default">Default</a></li>
-                    <li><a href="./it/98">Win 98</a></li>
-                    <li><a href="./it/xp">Win XP</a></li>
-                    <li><a href="./it/7">Win 7</a></li>
-                    <li><a href="./it/nes">NES</a></li>
+                    <li><a href="./{{ lan | safe }}/default">Default</a></li>
+                    <li><a href="./{{ lan | safe }}/98">Win 98</a></li>
+                    <li><a href="./{{ lan | safe }}/xp">Win XP</a></li>
+                    <li><a href="./{{ lan | safe }}/7">Win 7</a></li>
+                    <li><a href="./{{ lan | safe }}/nes">NES</a></li>
                     <!-- <li><a href="./cs16">CS 1.6</a></li>
                     <li><a href="./paper">Paper</a></li> -->
 
@@ -65,8 +65,8 @@
               </noscript>              
         </div>
         <div id="lan_selector">
-            <a href="/it"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
-            <a href="/en"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
+            <a href="/it/{{ theme | safe }}"><img src="{{ url_for('static', path='images/it.png')}}" alt="IT"></a>
+            <a href="/en/{{ theme | safe }}"><img src="{{ url_for('static', path='images/en.png')}}" alt="EN"></a>
             <!-- <a href="/de"><img src="{{ url_for('static', path='images/de.png')}}" alt="DE"></a> -->
         </div>
     </div>

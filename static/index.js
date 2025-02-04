@@ -25,10 +25,6 @@ function onLoad() {
     theme = document.getElementsByTagName("theme")[0].innerHTML
     if(theme) {
         document.getElementById("theme_selector").value = theme
-        let lans = document.getElementById("lan_selector")
-        for (const lan of lans.children) {
-            lan.href += "/" + theme
-        }
     }
 
 
