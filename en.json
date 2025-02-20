@@ -37,6 +37,7 @@
     "primary_link" : "Primary link",
     "secondary_link" : "Secondary link",
     "tertiary_link" : "Tertiary link",
+    "deleted_link": "Website deleted",
 
     "comments_title" : "Comments",
     "comments_loadmore_button": "Load more",
