@@ -206,15 +206,15 @@
                 <div class="window-body">
                     <div class="flex-item">
                         <label for="username">{{ leave_a_comment_username | safe}}</label>
-                        <input name="username" id="username" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_username_placeholder | safe}}">
+                        <input name="username" id="comment_username" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_username_placeholder | safe}}">
                     </div>
                     <div class="flex-item">
                         <label for="contact">{{ leave_a_comment_contact | safe}}</label>
-                        <input name="contact" id="contact" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_contact_placeholder | safe}}">
+                        <input name="contact" id="comment_contact" type="text" class="nes-input is-dark" placeholder="{{ leave_a_comment_contact_placeholder | safe}}">
                     </div>
                     <div class="flex-item">
                         <label for="text">{{ leave_a_comment_text | safe}}</label>
-                        <textarea name="text" id="text" cols="30" rows="10" maxlength="65536" class="nes-textarea is-dark" required placeholder="{{ leave_a_comment_textarea | safe}}"></textarea>
+                        <textarea name="text" id="comment_text" cols="30" rows="10" maxlength="65536" class="nes-textarea is-dark" required placeholder="{{ leave_a_comment_textarea | safe}}"></textarea>
                     </div>
                     <div class="flex-item">
                         <button onclick="submitComment()">{{ leave_a_comment_submit | safe}}</button>
@@ -222,6 +222,7 @@
                 </div>
             </div>
         </div>
+        <div id="comment_sending_status" hidden></div>
     </div>
 </body>
 <br><br>

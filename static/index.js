@@ -218,12 +218,29 @@ function loadComments() {
 }
 
 function submitComment() {
-    let insert_comment_section = document.getElementById("insert-comment-section")
-    
+    let comment_sending_status = document.getElementById("comment_sending_status")
 
-    user = insert_comment_section.children[0].children[0].children[1].value
-    contact = insert_comment_section.children[0].children[1].children[1].value
-    text = insert_comment_section.children[0].children[2].children[1].value
+    comment_sending_status.innerHTML = "Invio..."
+    comment_sending_status.hidden = false
+
+
+
+    let user_ = document.getElementById("comment_username")
+    let contact_ = document.getElementById("comment_contact")
+    let text_ = document.getElementById("comment_text")
+
+    user_.disabled = true
+    contact_.disabled = true
+    text_.disabled = true
+
+    let user = user_.value
+    let contact = contact_.value
+    let text = text_.value
+
+    user_.value = ""
+    contact_.value = ""
+    text_.value = ""
+    
     date = new Date(Date.now())
     date_ = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}T${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds().toString().padStart(2, '0')}`
     getData(`${location.origin}/comments/add?date=${date_}&user=${user}&text=${text}&contact=${contact}`, (data) => {
@@ -231,6 +248,13 @@ function submitComment() {
             comments_offset = 0
             loadComments()
         }
+    }).then(() => {
+        user_.disabled = false
+        contact_.disabled = false
+        text_.disabled = false
+
+        comment_sending_status.innerHTML = "Inviato"
+        comment_sending_status.hidden = true // TODO: disappear animation
     })
 }
 
