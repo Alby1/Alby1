@@ -252,10 +252,6 @@ function submitComment() {
     let user = user_.value
     let contact = contact_.value
     let text = text_.value
-
-    user_.value = ""
-    contact_.value = ""
-    text_.value = ""
     
     date = new Date(Date.now())
     date_ = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}T${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds().toString().padStart(2, '0')}`
@@ -264,7 +260,22 @@ function submitComment() {
             comments_offset = 0
             loadComments()
         }
+        else {
+            user_.disabled = false
+            contact_.disabled = false
+            text_.disabled = false
+
+            comment_sending_status.innerHTML = "Errore"
+            comment_sending_status.classList.remove("fast")
+            comment_sending_status.classList.add("hiding")
+
+            return
+        }
     }).then(() => {
+        user_.value = ""
+        contact_.value = ""
+        text_.value = ""
+
         user_.disabled = false
         contact_.disabled = false
         text_.disabled = false

@@ -154,14 +154,16 @@ async def comments_add(user: str, text: str, date: str, contact: str):
         comment = db.Comment(html.escape(text), date, user, contact, False)
         session = db.session()
         session.add(comment)
-        session.commit()
         try: 
             mail_date = date.split("T")
             mail_time = mail_date[1]
             mail_date = mail_date[0]
             mail.send_message(f"New comment added - by '{user if user else 'anonymous'}'", "Alby1 comment alert system", f"Comment text:\n\n'{text}'\n\nSent on {mail_date} at {mail_time}\n\nComment sent to {db.name}")
+
+            session.commit()
         except Exception as e:
             print(f"Couldn't send email:\n{e}")
+            return {"status": "error"}
         # TODO: xml file for rss // edit: not sure what i meant by that.
         return {"status": "success"}
 
