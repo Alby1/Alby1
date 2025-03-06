@@ -25,6 +25,11 @@ from email.header import Header
 from email.utils import formataddr
 import os
 
+import git
+repo = git.Repo(search_parent_directories=True)
+sha = repo.head.object.hexsha
+
+
 class MailService():
     def __init__(self):
         self.sender = f"{os.getenv('MAIL_ADDRESS')}"
@@ -192,6 +197,7 @@ async def read_item2(request: Request, lan: str, theme: str):
     obj["lan"] = lan
     obj["css"] = themes[theme]
     obj["theme"] = theme
+    obj["sha"] = sha
     return templates.TemplateResponse("index.html", obj)
 
 
