@@ -17,7 +17,7 @@ from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import Column, Integer, ForeignKey
-from sqlalchemy.dialects.mysql import VARCHAR, TINYINT, TEXT, DATETIME
+from sqlalchemy.dialects.mysql import VARCHAR, TINYINT, TEXT, DATETIME, BOOLEAN
 
 class DB_Service():
     Base = declarative_base()
@@ -29,17 +29,19 @@ class DB_Service():
         date = Column(DATETIME, nullable=False)
         user = Column(VARCHAR(64), nullable=True)
         contact = Column(VARCHAR(255), nullable=True)
+        verified = Column(BOOLEAN, nullable=True)
 
-        def __init__(self, text, date, user, contact) -> None:
+        def __init__(self, text, date, user, contact, verified) -> None:
             self.text = text
             self.date = date
             self.user = user
             self.contact = contact
+            self.verified = verified
 
 
     def __init__(self):
         self.protocol = "mysql+pymysql"
-        self.host = "localhost"
+        self.host = f"{os.getenv('DATABASE_HOST')}"
         self.port = 3306
         self.user = f"{os.getenv('DATABASE_USER')}"
         self.password = f"{os.getenv('DATABASE_PASSWORD')}"
@@ -113,7 +115,7 @@ async def comments_get(offset: int = 0):
     obj = session.query(db.Comment).order_by(db.Comment.id.desc()).offset(offset).limit(10).all()
     comments = []
     for c in obj:
-        comments.append({"user": c.user, "text": c.text, "date": c.date})
+        comments.append({"user": c.user, "text": c.text, "date": c.date, "verified": c.verified})
     count = session.query(db.Comment).count()
     result = {"comments": comments, "count": count}
     session.close()
@@ -123,11 +125,11 @@ async def comments_get(offset: int = 0):
 async def comments_add(user: str, text: str, date: str, contact: str):
     if(len(text) > 0):
         print(text, html.escape(text))
-        comment = db.Comment(html.escape(text), date, user, contact)
+        comment = db.Comment(html.escape(text), date, user, contact, False)
         session = db.session()
         session.add(comment)
         session.commit()
-        # TODO: xml file for rssì'
+        # TODO: xml file for rss // edit: not sure what i meant by that.
         return {"status": "success"}
 
 

@@ -83,6 +83,39 @@
     justify-content: space-between;
 }
 
+.comment-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    left: 110%;
+    top: -1rem;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 #load-more-comments-button {
 	height: 10ch;
 	width: 30ch;
@@ -156,4 +189,12 @@ footer {
     background-color: var(--main-background-color);
     border: 3px solid var(--comment-section-form-background-color); 
     border-radius: 10px;
+}
+
+.comments-verified img {
+    height: 2rem;
+}
+
+.hidden {
+    visibility: hidden;
 }

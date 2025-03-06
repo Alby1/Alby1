@@ -191,7 +191,11 @@
             <div class="flex-row title-bar title">
                 <div class="title-bar-text" style="font-size: 1.5em;">{{ comments_title | safe }}</div>
                 <div class="title-bar-controls"><p id="total-comments-number-text"></p></div>
-                <p id="comments-anonymous" hidden>{{ comments_anonymous | safe}}</p>
+                <p id="comments-anonymous" hidden>{{ comments_anonymous | safe }}</p>
+                <div id="comments-verified" class="comments-verified tooltip hidden">
+                    <img src="{{ url_for('static', path='images/verified.png') }}">
+                    <span class="tooltiptext">{{ comments_verified | safe }}</span>
+                </div>
             </div>
             <div id="flex-comment-section"> </div>
             <div class="flex-row">
@@ -239,6 +243,9 @@
         <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/flickr" title="flickr icons">Flickr icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/twitch" title="twitch icons">Twitch icons created by Freepik - Flaticon</a>
+    </div>
+    <div class="flex-responsive window-body">
+        <a href="https://www.freepik.com/icon/verified_15587826#fromView=keyword&page=1&position=93&uuid=5a9896c7-fd64-4251-8733-ce140777dc57">Verified Icon by Yudhi Restu</a>
     </div>
     <br>
 </footer>

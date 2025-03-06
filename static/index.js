@@ -174,22 +174,36 @@ function loadComments() {
     getData(`${location.origin}/comments/get?offset=${comments_offset}`, (data) => {
         comment_section = document.getElementById("flex-comment-section")
         comments_anonymous = document.getElementById("comments-anonymous").innerHTML
+        comments_verified = document.getElementById("comments-verified")
+
         if(comments_offset == 0) comment_section.innerHTML = ""
         for (const comment of data["comments"]) {
-            comment_altro_div = document.createElement("div")
+            let comment_altro_div = document.createElement("div")
             comment_altro_div.className = "flex-comment window"
 
-            comment_div = document.createElement("div")
+            let comment_div = document.createElement("div")
             comment_div.className = "window-body"
             
-            title_div = document.createElement("div")
+            let title_div = document.createElement("div")
             title_div.className = "comment-title"
 
-            if(comment.user == "") comment.user = comments_anonymous
-            comment_title = document.createElement("h3")
-            comment_title.innerHTML = comment.user
-            title_div.appendChild(comment_title)
+            let name_div = document.createElement("div")
+            name_div.className = "comment-name"
 
+            if(comment.user == "") comment.user = comments_anonymous
+            let comment_title = document.createElement("h3")
+            comment_title.innerHTML = comment.user
+            name_div.appendChild(comment_title)
+
+            if(comment.verified == true) {
+                let vf = comments_verified.cloneNode(true)
+                vf.id = ""
+                vf.classList.remove("hidden")
+
+                name_div.appendChild(vf)
+            }
+
+            title_div.appendChild(name_div)
 
             date = comment.date.split("T")
             comment.date = `${date[0]} ${date[1]} UTC`

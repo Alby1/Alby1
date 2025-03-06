@@ -42,6 +42,7 @@
     "comments_title" : "Comments",
     "comments_loadmore_button": "Load more",
     "comments_anonymous": "anonymous",
+    "comments_verified" : "Verified manually by me",
     "leave_a_comment_title": "Leave a comment!",
     "leave_a_comment_username": "Username (anonymous if left empty)",
     "leave_a_comment_contact": "A way to contact you if you wanna get a reply (this will not be shown)",
