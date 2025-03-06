@@ -23,7 +23,7 @@
 </head>
 <lan hidden>{{ lan | safe }}</lan>
 <theme hidden>{{ theme | safe }}</theme>
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden; margin: 2rem;">
     <span id="mouse_shadow"></span>
     <div id="has-mouse" hidden></div>
     <div style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -31,22 +31,18 @@
             <p>Theme:</p>
             <select name="" id="theme_selector" oninput="changeTheme()" class="">
                 <option value="default">Default</option>
+                <option value="holo">Holo</option>
+                <option value="cs16">CS 1.6</option>
+                <option value="paper">Paper</option>
                 <optgroup label="Windows">
                     <option value="98">Win 98</option>
                     <option value="xp">Win XP</option>
                     <option value="7">Win 7</option>
                 </optgroup>
-                <option value="nes">NES</option>
-                <!-- <option value="cs16">CS 1.6</option>
-                <option value="paper">Paper</option> -->
-                <!-- TODO: 
-                        https://cs16.samke.me/
-                        https://www.getpapercss.com/docs/layout/container/ 
-                        www.getpapercss.com
-                        micah5.github.io/PSone.css
-                        windows-ui.github.io
-                        holo.zmyaro.com
-                        -->
+                <optgroup label="Game Systems">
+                    <option value="nes">NES</option>
+                    <option value="PSone">PlayStation 1</option>
+                </optgroup>
             </select>
             <noscript>
                 <details>
