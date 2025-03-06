@@ -19,6 +19,30 @@ from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.dialects.mysql import VARCHAR, TINYINT, TEXT, DATETIME, BOOLEAN
 
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+from email.utils import formataddr
+import os
+
+class MailService():
+    def __init__(self):
+        self.sender = f"{os.getenv('MAIL_ADDRESS')}"
+        self.recipient = f"{os.getenv('MAIL_ADDRESS')}"
+        self.server = smtplib.SMTP_SSL(f"{os.getenv('MAIL_SMTP')}", 465)
+
+    def send_message(self, header: str, title: str, body: str):
+        msg = MIMEText(body, 'plain', 'utf-8')
+        msg['Subject'] =  Header(header, 'utf-8')
+        msg['From'] = formataddr((str(Header(title, 'utf-8')), self.sender))
+        msg['To'] = self.recipient
+
+        self.server.login(self.sender, f"{os.getenv('MAIL_PASSWORD')}")
+        self.server.sendmail(self.sender, [self.recipient], msg.as_string())
+        self.server.quit()
+
+
+
 class DB_Service():
     Base = declarative_base()
 
@@ -69,6 +93,8 @@ class DB_Service():
 load_dotenv()
 
 db = DB_Service()
+
+mail = MailService()
 
 app = FastAPI()
 
@@ -129,6 +155,13 @@ async def comments_add(user: str, text: str, date: str, contact: str):
         session = db.session()
         session.add(comment)
         session.commit()
+        try: 
+            mail_date = date.split("T")
+            mail_time = mail_date[1]
+            mail_date = mail_date[0]
+            mail.send_message(f"New comment added - by '{user if user else "anonymous"}'", "Alby1 comment alert system", f"Comment text:\n\n'{text}'\n\nSent on {mail_date} at {mail_time}\n\nComment sent to {db.name}")
+        except:
+            print("Couldn't send email")
         # TODO: xml file for rss // edit: not sure what i meant by that.
         return {"status": "success"}
 
