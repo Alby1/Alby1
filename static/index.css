@@ -189,6 +189,9 @@ footer {
     background-color: var(--main-background-color);
     border: 3px solid var(--comment-section-form-background-color); 
     border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
 }
 
 .comments-verified img {
@@ -197,4 +200,13 @@ footer {
 
 .hidden {
     visibility: hidden;
+}
+
+.hiding {
+    opacity: 0;
+    transition-duration: 10s;
+}
+
+.fast {
+    transition-duration: .25s;
 }

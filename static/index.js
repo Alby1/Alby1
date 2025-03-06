@@ -236,6 +236,8 @@ function submitComment() {
 
     comment_sending_status.innerHTML = "Invio..."
     comment_sending_status.hidden = false
+    comment_sending_status.classList.add("fast")
+    comment_sending_status.classList.remove("hiding")
 
 
 
@@ -268,7 +270,8 @@ function submitComment() {
         text_.disabled = false
 
         comment_sending_status.innerHTML = "Inviato"
-        comment_sending_status.hidden = true // TODO: disappear animation
+        comment_sending_status.classList.remove("fast")
+        comment_sending_status.classList.add("hiding")
     })
 }
 
