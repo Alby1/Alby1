@@ -259,33 +259,31 @@ function submitComment() {
     date = new Date(Date.now())
     date_ = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}T${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds().toString().padStart(2, '0')}`
     getData(`${location.origin}/comments/add?date=${date_}&user=${user}&text=${text}&contact=${contact}`, (data) => {
+        user_.disabled = false
+        contact_.disabled = false
+        text_.disabled = false
+        
         if(data["status"] == "success") {
+            user_.value = ""
+            contact_.value = ""
+            text_.value = ""
+
+            comment_sending_status.innerHTML = comment_sent
+            comment_sending_status.classList.remove("fast")
+            comment_sending_status.classList.add("hiding")
+
             comments_offset = 0
             loadComments()
         }
-        else {
-            user_.disabled = false
-            contact_.disabled = false
-            text_.disabled = false
-
+        else if(data["status"] == "error") {
+            console.log(data["message"])
+            
             comment_sending_status.innerHTML = comment_failed
             comment_sending_status.classList.remove("fast")
             comment_sending_status.classList.add("hiding")
 
             return
         }
-    }).then(() => {
-        user_.value = ""
-        contact_.value = ""
-        text_.value = ""
-
-        user_.disabled = false
-        contact_.disabled = false
-        text_.disabled = false
-
-        comment_sending_status.innerHTML = comment_sent
-        comment_sending_status.classList.remove("fast")
-        comment_sending_status.classList.add("hiding")
     })
 }
 
