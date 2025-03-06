@@ -233,8 +233,11 @@ function loadComments() {
 
 function submitComment() {
     let comment_sending_status = document.getElementById("comment_sending_status")
+    let comment_sending = document.getElementById("comment_sending").innerHTML
+    let comment_sent = document.getElementById("comment_sent").innerHTML
+    let comment_failed = document.getElementById("comment_failed").innerHTML
 
-    comment_sending_status.innerHTML = "Invio..."
+    comment_sending_status.innerHTML = comment_sending
     comment_sending_status.hidden = false
     comment_sending_status.classList.add("fast")
     comment_sending_status.classList.remove("hiding")
@@ -265,7 +268,7 @@ function submitComment() {
             contact_.disabled = false
             text_.disabled = false
 
-            comment_sending_status.innerHTML = "Errore"
+            comment_sending_status.innerHTML = comment_failed
             comment_sending_status.classList.remove("fast")
             comment_sending_status.classList.add("hiding")
 
@@ -280,7 +283,7 @@ function submitComment() {
         contact_.disabled = false
         text_.disabled = false
 
-        comment_sending_status.innerHTML = "Inviato"
+        comment_sending_status.innerHTML = comment_sent
         comment_sending_status.classList.remove("fast")
         comment_sending_status.classList.add("hiding")
     })
