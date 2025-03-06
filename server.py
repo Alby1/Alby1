@@ -147,24 +147,28 @@ async def comments_get(offset: int = 0):
     session.close()
     return result
 
+def add_comment(user: str, text: str, date: str, contact: str, retries: int):
+    comment = db.Comment(html.escape(text), date, user, contact, False)
+    session = db.session()
+    try: 
+        mail_date = date.split("T")
+        mail_time = mail_date[1]
+        mail_date = mail_date[0]
+        mail.send_message(f"New comment added - by '{user if user else 'anonymous'}'", "Alby1 comment alert system", f"Comment text:\n\n'{text}'\n\nSent on {mail_date} at {mail_time}\n\nComment sent to {db.name}")
+
+        session.add(comment)
+        session.commit()
+    except Exception as e:
+        if(retries < 10):
+            return add_comment(user, text, date, contact, retries + 1)
+        return {"status": "error", "message": str(e)}
+    # TODO: xml file for rss // edit: not sure what i meant by that.
+    return {"status": "success"}
+
 @app.get("/comments/add")
 async def comments_add(user: str, text: str, date: str, contact: str):
     if(len(text) > 0):
-        comment = db.Comment(html.escape(text), date, user, contact, False)
-        session = db.session()
-        session.add(comment)
-        try: 
-            mail_date = date.split("T")
-            mail_time = mail_date[1]
-            mail_date = mail_date[0]
-            mail.send_message(f"New comment added - by '{user if user else 'anonymous'}'", "Alby1 comment alert system", f"Comment text:\n\n'{text}'\n\nSent on {mail_date} at {mail_time}\n\nComment sent to {db.name}")
-
-            session.commit()
-        except Exception as e:
-            print(f"Couldn't send email:\n{e}")
-            return {"status": "error"}
-        # TODO: xml file for rss // edit: not sure what i meant by that.
-        return {"status": "success"}
+        return add_comment(user, text, date, contact, 0)
 
 
 @app.get("/{lan}", response_class=HTMLResponse)
