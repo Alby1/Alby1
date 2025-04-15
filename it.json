@@ -17,7 +17,7 @@
     
     "tms_desc" : "Abbreviazione di Team Macchi Schiavone.<br>Questo è il primo sito che abbiamo realizzato e rappresenta la nascita della nostra ambizione verso il mondo del game development.",
     
-    "hosb_desc": "Highly Optimized Sound Board è una soundboard basata su .net per Windows.<br>Il pacchetto è un singolo file exe.<br>Nessun suono è incluso.",
+    "hosb_desc": "Highly Optimized Sound Board è una soundboard basata su .net per Windows.<br>Il pacchetto è un singolo file exe.<br>Nessun suono è incluso.<br>Fa parte della HO Suite, una serie di software creati per imparare a prioritizzare la massima efficienza nei programmi meno importanti, e generalmente programmati in C#. L'originale ideatore è <a href='#friends'>Antonio</a>",
 
     "bitchis_title" : "Le Bitchis",
     "bitchis_desc": "Progetto scolastico realizzato con Wordpress e vari plugin, tra cui WooCommerce.<br>Si tratta di un sito di vendita di biciclette con dettagli completi, categorie, recensioni, account e pagamenti con PayPal.<br>Realizzato insieme a Mattia Franciosi.",
@@ -33,6 +33,8 @@
     
     "my_contacts":"I MIEI CONTATTI",
     
+    "my_friends": "I MIEI AMICI",
+
     "fun_features_title" : "FATTI INTERESSANTI",
     "music_info_title" : "Statistiche sulla mie canzoni preferite",
     "music_info_desc": "{playcount} riproduzioni totali, {track_count} canzoni da {artist_count} artisti.",

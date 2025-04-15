@@ -17,7 +17,7 @@
     
     "tms_desc" : "Short for Team Macchi Schiavone.<br>This is the first website we have ever built and represents the birth of our ambition towards the world of game development.",
     
-    "hosb_desc": "Highly Optimized Sound Board is a .net based soundboard for Windows.<br>The Package is a single exe file.<br>No sounds are included.",
+    "hosb_desc": "Highly Optimized Sound Board is a .net based soundboard for Windows.<br>The Package is a single exe file.<br>No sounds are included.<br>It is part of the HO Suite, a collection of software created to learn how to prioritize maximum efficiency in less important programs, and mostly programmed in C#. The original creator is <a href='#friends'>Antonio</a>",
     
     "bitchis_title" : "Le Bitchis",
     "bitchis_desc": "School project realized through Wordpress and some plugin, like WooCommerce.<br>This is a bicycle sales website with full details, categories, reviews, accounts, and PayPal payments.<br>Created with Mattia Franciosi.",
@@ -32,6 +32,8 @@
     "tinder_desc": "Meetup website with a very similar idea to Tinder. This project was the lowest grade i ever had on an assignment.",
     
     "my_contacts":"MY CONTACT INFORMATION",
+
+    "my_friends": "MY FRIENDS",
 
     "fun_features_title" : "FUN FACTS",
     "music_info_title" : "My music taste statistics",
