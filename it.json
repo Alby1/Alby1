@@ -7,19 +7,30 @@
     "presenting_text": "Mi chiamo Alberto Macchi, sono nato il 02/12/2004. Sono un perito informatico ed ho studiato all'IIS F.Corni a Modena. Attualmente sto studiando ingegneria informatica all'UniMoRe.",
     
     "my_projects": "I MIEI PROGETTI",
+
+    "school_projects": "PROGETTI DALLA SCUOLA",
     
-    "salama_title": "Salama",
+    "salama_title": "Vabenla",
     "salama_desc": "Sito di ricerca sagre e eventi.",
+    
+    "elevate_desc": "Progetto in realizzazione con amici e compagni di classe.<br>Creiamo videogiochi nel tempo libero.",
+    
+    "tms_desc" : "Abbreviazione di Team Macchi Schiavone.<br>Questo è il primo sito che abbiamo realizzato e rappresenta la nascita della nostra ambizione verso il mondo del game development.",
+    
+    "hosb_desc": "Highly Optimized Sound Board è una soundboard basata su .net per Windows.<br>Il pacchetto è un singolo file exe.<br>Nessun suono è incluso.",
 
     "bitchis_title" : "Le Bitchis",
     "bitchis_desc": "Progetto scolastico realizzato con Wordpress e vari plugin, tra cui WooCommerce.<br>Si tratta di un sito di vendita di biciclette con dettagli completi, categorie, recensioni, account e pagamenti con PayPal.<br>Realizzato insieme a Mattia Franciosi.",
 
-    "elevate_desc": "Progetto in realizzazione con amici e compagni di classe.<br>Creiamo videogiochi nel tempo libero.",
+    "DW_title": "Developer's Week Borsa",
+    "DW_desc": "Tracciatore di azioni con backend in Java e Webpage come frontend",
+
+    "mulino_title": "Mulino",
+    "mulino_desc": "Software per monitoraggio delle scorte di magazzino e pagina del negozio per i clienti.<br>Il software del magazzino richiede un solo comando per essere avviato. Quindi crea i database e si connette al server centrale in automatico.",
+
+    "tinder_title": "Tinder 2",
+    "tinder_desc": "Sito di incontri con una idea molto simile a Tinder. Questo progetto è stato il voto più basso che abbia mai preso in un compito scolastico.",
     
-    "tms_desc" : "Abbreviazione di Team Macchi Schiavone.<br>Questo è il primo sito che abbiamo realizzato e rappresenta la nascita della nostra ambizione verso il mondo del game development.",
-
-    "hosb_desc": "Highly Optimized Sound Board è una soundboard basata su .net per Windows.<br>Il pacchetto è un singolo file exe.<br>Nessun suono è incluso.",
-
     "my_contacts":"I MIEI CONTATTI",
     
     "fun_features_title" : "FATTI INTERESSANTI",
@@ -38,6 +49,8 @@
     "secondary_link" : "Link secondario",
     "tertiary_link" : "Link terziario",
     "deleted_link": "Sito eliminato",
+    "unavailable_link": "Nessun link disponibile",
+    "link_to_repo": "Link del progetto",
 
     "comments_title" : "Commenti",
     "comments_loadmore_button": "Carica altri",

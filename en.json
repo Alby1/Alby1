@@ -7,19 +7,30 @@
     "presenting_text": "My name is Alberto Macchi, I was born on 02/12/2004. I am a computer technician, I studied at IIS F.Corni in Modena, Italy. Currently I'm studying computer engineering at UniMoRe.",
     
     "my_projects": "MY PROJECTS",
+
+    "school_projects": "PROJECTS FROM SCHOOL",
     
     "salama_title": "Vabenla",
     "salama_desc": "A festivals and events search website. Currently partially available only in Italy, contact me if you're interested in helping me out expanding to other areas",
 
-    "bitchis_title" : "Le Bitchis",
-    "bitchis_desc": "School project realized through Wordpress and some plugin, like WooCommerce.<br>This is a bicycle sales website with full details, categories, reviews, accounts, and PayPal payments.<br>Created with Mattia Franciosi.",
-
     "elevate_desc": "Project being carried out with friends and classmates.<br>We design video games in our free time.",
     
     "tms_desc" : "Short for Team Macchi Schiavone.<br>This is the first website we have ever built and represents the birth of our ambition towards the world of game development.",
-
+    
     "hosb_desc": "Highly Optimized Sound Board is a .net based soundboard for Windows.<br>The Package is a single exe file.<br>No sounds are included.",
+    
+    "bitchis_title" : "Le Bitchis",
+    "bitchis_desc": "School project realized through Wordpress and some plugin, like WooCommerce.<br>This is a bicycle sales website with full details, categories, reviews, accounts, and PayPal payments.<br>Created with Mattia Franciosi.",
 
+    "DW_title": "Developer's Week Stock Tracker",
+    "DW_desc": "Stock tracker made in Java and webpage frontend.",
+
+    "mulino_title": "Mulino",
+    "mulino_desc": "Warehouse stock tracker and storepage for customers.<br>Warehouse software requires just one command to start. It then creates databases and connects to central server on its own.",
+
+    "tinder_title": "Tinder 2",
+    "tinder_desc": "Meetup website with a very similar idea to Tinder. This project was the lowest grade i ever had on an assignment.",
+    
     "my_contacts":"MY CONTACT INFORMATION",
 
     "fun_features_title" : "FUN FACTS",
@@ -38,6 +49,8 @@
     "secondary_link" : "Secondary link",
     "tertiary_link" : "Tertiary link",
     "deleted_link": "Website deleted",
+    "unavailable_link": "No link available",
+    "link_to_repo": "Project link",
 
     "comments_title" : "Comments",
     "comments_loadmore_button": "Load more",
