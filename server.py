@@ -1,16 +1,18 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
 import uvicorn
 import json
 import os
-from dotenv import load_dotenv
 import requests
 import html
 import xml
+import traceback
 
-import json
+from dotenv import load_dotenv
+
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
@@ -23,7 +25,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr
-import os
 
 import git
 repo = git.Repo(search_parent_directories=True)
@@ -166,14 +167,18 @@ def add_comment(user: str, text: str, date: str, contact: str, retries: int):
     except Exception as e:
         if(retries < 10):
             return add_comment(user, text, date, contact, retries + 1)
+        traceback.print_exc()
         return {"status": "error", "message": str(e)}
     # TODO: xml file for rss // edit: not sure what i meant by that.
     return {"status": "success"}
 
 @app.get("/comments/add")
-async def comments_add(user: str, text: str, date: str, contact: str):
+async def comments_add(user: str, text: str, date: str, contact: str, response: Response):
     if(len(text) > 0):
-        return add_comment(user, text, date, contact, 0)
+        ret = add_comment(user, text, date, contact, 0)
+        if (ret["status"] == "error"):
+            response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+        return ret
 
 
 @app.get("/{lan}", response_class=HTMLResponse)
