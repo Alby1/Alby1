@@ -19,15 +19,16 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', path='index.css') }}" onload="onLoad()">
     <link rel="stylesheet" href="{{ css | safe }}">
+    <link rel="stylesheet" href="/static/base.css">
 
 </head>
 <lan hidden>{{ lan | safe }}</lan>
 <theme hidden>{{ theme | safe }}</theme>
-<body style="overflow-x: hidden; margin: 2rem;">
+<body>
     <span id="mouse_shadow"></span>
     <div id="has-mouse" hidden></div>
-    <div style="display: flex; flex-direction: row; justify-content: space-between;">
-        <div style="display: flex;justify-self: flex-end;margin-left: 2rem;align-items: center;padding-top: .5rem; width: fit-content;" class="nes-select is-dark">
+    <div class="top-bar">
+        <div class="nes-select is-dark theme-selector">
             <p>Theme:</p>
             <select name="" id="theme_selector" oninput="changeTheme()" class="">
                 <option value="default">Default</option>
@@ -75,10 +76,10 @@
                 <p>{{ presenting_text | safe }}</p>
             </div>
         </div>
-        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="spacer spacer-top"></div>
         <div id="projects-container" class="nes-container is-dark with-title">
-            <div class="flex-row title-bar title"><div class="title-bar-text" style="font-size: 1.5em;">{{ my_projects | safe }}</div></div>
-            <div class="spacer" style="margin-top: 10px;"></div>
+            <div class="flex-row title-bar title"><div class="title-bar-text title-font">{{ my_projects | safe }}</div></div>
+            <div class="spacer spacer-middle"></div>
             <div class="flex-responsive">
                 <div class="flex-item mobile-animation window nes-container is-dark with-title">
                     <div class="title-bar title"><div class="title-bar-text h2">{{ salama_title | safe }}</div></div>
@@ -126,8 +127,8 @@
                 </div>
             </div>
 
-            <div class="flex-row title-bar title"><div class="title-bar-text" style="font-size: 1.5em;">{{ school_projects | safe }}</div></div>
-            <div class="spacer" style="margin-top: 10px;"></div>
+            <div class="flex-row title-bar title"><div class="title-bar-text title-font">{{ school_projects | safe }}</div></div>
+            <div class="spacer spacer-middle"></div>
             <div class="flex-responsive">
                 <div class="flex-item mobile-animation window nes-container is-dark with-title">
                     <div class="title-bar title"><div class="title-bar-text h2">{{ bitchis_title | safe }}</div></div>
@@ -165,9 +166,9 @@
             </div>
         </div>
         
-        <div class="spacer" style="margin-top: 25px;"></div>
-        <div class="flex-row title-bar"><div class="title-bar-text" style="font-size: 1.5em;">{{ my_contacts | safe }}</div></div>
-        <div class="spacer" style="margin-top: 10px;"></div>
+        <div class="spacer spacer-top"></div>
+        <div class="flex-row title-bar"><div class="title-bar-text title-font">{{ my_contacts | safe }}</div></div>
+        <div class="spacer spacer-middle"></div>
         <!-- IDEA: quando in verticale centrare il logo e mettere a griglia di larghezza 2 o 4 -->
         <!-- https://www.techiedelight.com/check-whether-image-is-loaded-with-javascript/ -->            
         <div class="flex-responsive window nes-container is-dark"> <!-- SOCIAL MEDIA -->
@@ -199,9 +200,9 @@
 
         
         
-        <div class="spacer" style="margin-top: 25px;"></div>
-        <div class="flex-row title-bar"><div class="title-bar-text" style="font-size: 1.5em;" id="friends">{{ my_friends | safe }}</div></div>
-        <div class="spacer" style="margin-top: 10px;"></div>
+        <div class="spacer spacer-top"></div>
+        <div class="flex-row title-bar"><div class="title-bar-text title-font" id="friends">{{ my_friends | safe }}</div></div>
+        <div class="spacer spacer-middle"></div>
         <div class="flex-responsive window">
             <div class="flex-item mobile-animation window nes-container is-dark with-title">
                 <div class="title-bar title"><div class="title-bar-text h2">Steffo</div></div>
@@ -224,9 +225,9 @@
         </div>
 
 
-        <div class="spacer" style="margin-top: 25px;"></div>
-        <div class="flex-row title-bar"><div class="title-bar-text" style="font-size: 1.5em;">{{ fun_features_title | safe }}</div></div>
-        <div class="spacer" style="margin-top: 10px;"></div>
+        <div class="spacer spacer-middle"></div>
+        <div class="flex-row title-bar"><div class="title-bar-text title-font">{{ fun_features_title | safe }}</div></div>
+        <div class="spacer spacer-middle"></div>
 
         <div class="flex-responsive window">
             <div class="flex-item mobile-animation window-body nes-container is-dark with-title">
@@ -251,10 +252,10 @@
             </div>
         </div>
 
-        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="spacer spacer-top"></div>
         <div class="nes-container is-dark with-title">
             <div class="flex-row title-bar title">
-                <div class="title-bar-text" style="font-size: 1.5em;">{{ comments_title | safe }}</div>
+                <div class="title-bar-text title-font">{{ comments_title | safe }}</div>
                 <div class="title-bar-controls"><p id="total-comments-number-text"></p></div>
                 <p id="comments-anonymous" hidden>{{ comments_anonymous | safe }}</p>
                 <div id="comments-verified" class="comments-verified tooltip hidden">
@@ -268,7 +269,7 @@
             </div>
         </div>
 
-        <div class="spacer" style="margin-top: 25px;"></div>
+        <div class="spacer spacer-top"></div>
         <div class="nes-container is-dark with-title">
             <div class="flex-row title-bar title"><div class="title-bar-text h2">{{ leave_a_comment_title | safe}}</div></div>
             <div id="insert-comment-section" class="window">

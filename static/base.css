@@ -1,0 +1,31 @@
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.theme-selector {
+    display: flex;
+    justify-self: flex-end;
+    margin-left: 2rem;
+    align-items: center;
+    padding-top: .5rem;
+    width: fit-content;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 2rem;
+}
+
+.spacer-top {
+    margin-top: 25px;
+}
+
+.spacer-middle {
+    margin-top: 10px;
+}
+
+.title-font {
+    font-size: 1.5em;
+}
