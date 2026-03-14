@@ -196,32 +196,33 @@ textarea {
 }
 
 .contact-item img {
-    width: clamp(3.5rem ,15%, 100rem);
+    width: clamp(3.5rem, 15%, 100rem);
 }
 
 .contact-item a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:0;
+    margin: 0;
 }
 
 
 
 @media not (pointer: fine) {
     .contact-item {
-        background: linear-gradient(135deg,  var(--contact-highlight) 45%, var(--item-background-color) 50%) right;
+        background: linear-gradient(135deg, var(--contact-highlight) 45%, var(--item-background-color) 50%) right;
         background-size: 500%;
         transition: background-position 100ms ease-in-out;
     }
 
     #has-mouse {
-        --has-mouse:false;
+        --has-mouse: false;
     }
 }
+
 @media (pointer: fine) {
     .contact-item {
-        background: linear-gradient(135deg,  var(--contact-highlight) 25%, var(--item-background-color) 75%) right;
+        background: linear-gradient(135deg, var(--contact-highlight) 25%, var(--item-background-color) 75%) right;
         background-size: 500%;
         transition: background-position 500ms ease-in-out;
     }
@@ -230,16 +231,18 @@ textarea {
         background-position: left;
         transition: background-position 750ms;
     }
-    .invert_icon > a > img {
+
+    .invert_icon>a>img {
         transition: filter 500ms ease-in-out;
     }
     
-    .invert_icon:hover > a > img {
+    .invert_icon:hover>a>img {
         filter: invert(95%);
         transition: filter 750ms;
     }
+
     #has-mouse {
-        --has-mouse:true;
+        --has-mouse: true;
     }
 }
 
@@ -281,7 +284,8 @@ h6,
     text-align: center;
 }
 
-.flex-row h1, .flex-row .title-bar-text {
+.flex-row h1,
+.flex-row .title-bar-text {
     text-align: center;
 }
 
