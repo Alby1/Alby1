@@ -35,7 +35,6 @@ class MailService():
     def __init__(self):
         self.sender = f"{os.getenv('MAIL_ADDRESS')}"
         self.recipient = f"{os.getenv('MAIL_ADDRESS')}"
-        self.server = smtplib.SMTP_SSL(f"{os.getenv('MAIL_SMTP')}", 465)
 
     def send_message(self, header: str, title: str, body: str):
         msg = MIMEText(body, 'plain', 'utf-8')
@@ -43,9 +42,9 @@ class MailService():
         msg['From'] = formataddr((str(Header(title, 'utf-8')), self.sender))
         msg['To'] = self.recipient
 
-        self.server.login(self.sender, f"{os.getenv('MAIL_PASSWORD')}")
-        self.server.sendmail(self.sender, [self.recipient], msg.as_string())
-        self.server.quit()
+        with smtplib.SMTP_SSL(f"{os.getenv('MAIL_SMTP')}", 465) as server:
+            server.login(self.sender, f"{os.getenv('MAIL_PASSWORD')}")
+            server.sendmail(self.sender, [self.recipient], msg.as_string())
 
 
 
