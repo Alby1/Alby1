@@ -152,6 +152,7 @@ textarea {
 
 .image-display {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
 }
 
@@ -228,7 +229,7 @@ textarea {
 
     .image-display {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: left;
         gap: 10px;
     }
