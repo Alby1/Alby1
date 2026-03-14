@@ -92,8 +92,8 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
 }
 
 #load-more-comments-button {
-	height: 10ch;
-	width: 30ch;
+    height: 10ch;
+    width: 30ch;
 }
 
 #total-comments-number-text {
@@ -110,9 +110,9 @@ https://css-tricks.com/snippets/css/complete-guide-grid/ */
 
 input {
     margin-top: 1ch;
-	height: 3ch;
-	border-radius: 5px;
-	padding: 1.5ch;
+    height: 3ch;
+    border-radius: 5px;
+    padding: 1.5ch;
     background-color: var(--comment-section-form-background-color);
     color: var(--comment-section-form-text-color);
     border: none;
@@ -120,8 +120,8 @@ input {
 
 textarea {
     margin-top: 1ch;
-	border-radius: 5px;
-	padding: 2ch;
+    border-radius: 5px;
+    padding: 2ch;
     background-color: var(--comment-section-form-background-color);
     color: var(--comment-section-form-text-color);
     border: none;
@@ -129,7 +129,7 @@ textarea {
 
 #insert-comment-section button {
     padding: 1rem 0;
-	border-radius: 5px;
+    border-radius: 5px;
     background-color: var(--comment-section-form-background-color);
     color: var(--comment-section-form-text-color);
     border: none;
@@ -150,6 +150,54 @@ textarea {
 
 
 
+.image-display {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-display img {
+    max-height: 80vh;
+    max-width: 70%;
+
+    user-select: none;
+    cursor: zoom-in;
+}
+
+.image-display>div {
+    max-width: 35%;
+}
+
+#big-image-container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 5;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--main-background-color);
+
+    cursor: zoom-out;
+}
+
+#big-image-container.hidden {
+    display: none;
+}
+
+#big-image-container img {
+    max-height: 95%;
+    max-width: 95%;
+}
+
+.reduce-padding {
+    padding: 0 2ch 2ch 2ch;
+}
+
+
 @media only screen and (max-width: 730px) {
     .flex-responsive {
         flex-direction: column;
@@ -157,7 +205,8 @@ textarea {
         justify-self: center;
     }
 
-    .flex-item, .contact-item {
+    .flex-item,
+    .contact-item {
         margin: auto;
         width: 90%;
     }
@@ -174,6 +223,25 @@ textarea {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .image-display {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 10px;
+    }
+
+    .image-display img {
+        align-self: center;
+        
+        max-height: 80vh;
+        max-width: 100%;
+    }
+
+    .image-display>div {
+        max-width: 100%;
     }
 }
 
@@ -226,7 +294,7 @@ textarea {
         background-size: 500%;
         transition: background-position 500ms ease-in-out;
     }
-    
+
     .contact-item:hover {
         background-position: left;
         transition: background-position 750ms;
@@ -235,7 +303,7 @@ textarea {
     .invert_icon>a>img {
         transition: filter 500ms ease-in-out;
     }
-    
+
     .invert_icon:hover>a>img {
         filter: invert(95%);
         transition: filter 750ms;

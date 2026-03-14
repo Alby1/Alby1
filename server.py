@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Response, status
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -179,6 +179,12 @@ async def comments_add(user: str, text: str, date: str, contact: str, response: 
         if (ret["status"] == "error"):
             response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
         return ret
+
+
+
+@app.get("/fotografia1", response_class=HTMLResponse)
+async def fotografia1():
+    return FileResponse("static/html/fotografia.html")
 
 
 @app.get("/{lan}", response_class=HTMLResponse)
