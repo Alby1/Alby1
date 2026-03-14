@@ -64,7 +64,7 @@ function moveBigImage(event) {
 
         const i = findCurrentImageIndex(imgs, bi)
 
-        applyBigImg(imgs[i-1].src)
+        if (imgs[i-1]) applyBigImg(imgs[i-1].src)
     }
 
     if(event.key == 'ArrowRight') {
@@ -73,7 +73,7 @@ function moveBigImage(event) {
 
         const i = findCurrentImageIndex(imgs, bi)
 
-        applyBigImg(imgs[i+1].src)
+        if (imgs[i+1]) applyBigImg(imgs[i+1].src)
     }
 
     if(event.key == 'Escape') {
@@ -90,12 +90,30 @@ function isBigImageShown() {
     return bic.classList.contains('hidden')
 }
 
+
+
+
+/**
+ * @type {Object<string, number>}
+ */
+let imgIdMap = { }
+
+/**
+ * 
+ * @param {HTMLCollectionOf<HTMLImageElement>} imgs 
+ * @param {HTMLImageElement} bi 
+ * @returns {number}
+ */
 function findCurrentImageIndex(imgs, bi) {
+    const big = bi.src.replace('/fotografia1/', '/fotografia1/compressed/')
+    if (imgIdMap[big]) return imgIdMap[big]
+    
     let i = 0
     for (const img of imgs) {
-        if (img.src == bi.src && img.id != 'big-image')
+        if (img.src == big && img.id != 'big-image')
             break
         i++
     }
+    imgIdMap[big] = i
     return i
 }
