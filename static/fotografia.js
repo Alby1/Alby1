@@ -1,3 +1,5 @@
+const isBigUncompressed = false
+
 
 function onLoad() {
     const bic = document.getElementById('big-image-container')
@@ -33,7 +35,7 @@ function applyBigImg(src) {
      */
     const bi = document.getElementById('big-image')
 
-    src = src.replace("/compressed", '')
+    if (isBigUncompressed) src = src.replace("/compressed", '')
 
     bi.src = src
 }
@@ -105,7 +107,8 @@ let imgIdMap = { }
  * @returns {number}
  */
 function findCurrentImageIndex(imgs, bi) {
-    const big = bi.src.replace('/fotografia1/', '/fotografia1/compressed/')
+    let big = bi.src
+    if (isBigUncompressed) big = big.replace('/fotografia1/', '/fotografia1/compressed/')
     if (imgIdMap[big]) return imgIdMap[big]
     
     let i = 0
