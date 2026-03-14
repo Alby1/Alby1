@@ -20,12 +20,22 @@ function openImgBig(img) {
 
     bic.classList.remove('hidden')
 
+    applyBigImg(img.src)
+}
+
+/**
+ * 
+ * @param {string} src 
+ */
+function applyBigImg(src) {
     /**
      * @type {HTMLImageElement}
      */
     const bi = document.getElementById('big-image')
 
-    bi.src = img.src
+    src = src.replace("/compressed", '')
+
+    bi.src = src
 }
 
 function hideBigImage() {
@@ -41,7 +51,7 @@ function hideBigImage() {
 function moveBigImage(event) {
     const bic = document.getElementById('big-image-container')
 
-    if (bic.classList.contains('hidden')) return
+    if (isBigImageShown()) return
     
     /**
      * @type {HTMLImageElement}
@@ -54,7 +64,7 @@ function moveBigImage(event) {
 
         const i = findCurrentImageIndex(imgs, bi)
 
-        bi.src = imgs[i-1].src
+        applyBigImg(imgs[i-1].src)
     }
 
     if(event.key == 'ArrowRight') {
@@ -63,12 +73,21 @@ function moveBigImage(event) {
 
         const i = findCurrentImageIndex(imgs, bi)
 
-        bi.src = imgs[i+1].src
+        applyBigImg(imgs[i+1].src)
     }
 
     if(event.key == 'Escape') {
         bic.classList.add('hidden')
     }
+}
+
+function isBigImageShown() {
+    /**
+     * @type {HTMLDivElement}
+     */
+    const bic = document.getElementById('big-image-container')
+
+    return bic.classList.contains('hidden')
 }
 
 function findCurrentImageIndex(imgs, bi) {
