@@ -18,6 +18,10 @@ body {
     margin: 2rem;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 .spacer-top {
     margin-top: 25px;
 }
