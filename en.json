@@ -52,9 +52,9 @@
     "primary_link" : "Primary link",
     "secondary_link" : "Secondary link",
     "tertiary_link" : "Tertiary link",
+    "source_link" : "Source code link",
     "deleted_link": "Website deleted",
     "unavailable_link": "No link available",
-    "link_to_repo": "Project link",
 
     "comments_title" : "Comments",
     "comments_loadmore_button": "Load more",
