@@ -187,7 +187,7 @@ async def fotografia1():
 
 
 @app.get("/{lan}", response_class=HTMLResponse)
-async def read_item(request: Request, lan: str):
+async def redirect_from_lan(request: Request, lan: str):
     return RedirectResponse(f"/{lan}/default")
 
 themes: dict[(str, str)] = {
@@ -207,7 +207,7 @@ themes: dict[(str, str)] = {
 }
 
 @app.get("/{lan}/{theme}", response_class=HTMLResponse)
-async def read_item2(request: Request, lan: str, theme: str):
+async def read_item(request: Request, lan: str, theme: str):
     if len(lan) > 2:
         return RedirectResponse(f"/{lan[:2]}/{theme}")
     
@@ -221,7 +221,7 @@ async def read_item2(request: Request, lan: str, theme: str):
     obj["css"] = themes[theme]
     obj["theme"] = theme
     obj["sha"] = sha
-    return templates.TemplateResponse("index.html", obj)
+    return templates.TemplateResponse(request, "index.html", obj)
 
 
 if __name__ == "__main__":
