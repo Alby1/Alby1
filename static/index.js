@@ -179,7 +179,7 @@ function loadComments() {
         if(comments_offset == 0) comment_section.innerHTML = ""
         for (const comment of data["comments"]) {
             let comment_altro_div = document.createElement("div")
-            comment_altro_div.className = "flex-comment window"
+            comment_altro_div.className = "flex-comment window slop-card slop-card-beam"
 
             let comment_div = document.createElement("div")
             comment_div.className = "window-body"
